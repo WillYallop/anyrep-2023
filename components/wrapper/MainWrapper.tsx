@@ -3,6 +3,7 @@ import { h, FunctionalComponent } from "preact";
 import { asset } from "$fresh/runtime.ts";
 // Islands
 import Header from "../../islands/Header.tsx";
+import TopBar from "../partials/Topbar.tsx";
 
 interface MainWrapperProps {
   seo: {
@@ -26,6 +27,7 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({ children }) => {
     <html>
       <head></head>
       <body>
+        <TopBar />
         <Header />
         <main>{children}</main>
       </body>

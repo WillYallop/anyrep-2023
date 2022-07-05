@@ -91,7 +91,7 @@ const Header: FunctionalComponent = () => {
             dropdownState
               ? "lg:opacity-100 lg:translate-y-4 lg:pointer-events-auto"
               : "lg:opacity-0 lg:translate-y-0 lg:pointer-events-none"
-          } transition-all mt-5 lg:mt-0 duration-300 lg:absolute lg:top-full bg-white lg:border lg:border-brandDarkBlue lg:border-opacity-20  lg:rounded-2xl lg:p-4 w-full lg:w-[300px]`}
+          } transition-all mt-5 z-30 lg:mt-0 duration-300 lg:absolute lg:top-full bg-white lg:border lg:border-brandDarkBlue lg:border-opacity-20  lg:rounded-2xl lg:p-4 w-full lg:w-[300px]`}
         >
           {children.map((item) => {
             return (
@@ -135,7 +135,7 @@ const Header: FunctionalComponent = () => {
           aria-label={"Mobile Navigation Button"}
           class={tw`${
             navState ? "fixed top-4 right-5" : ""
-          } lg:hidden h-12 w-12 flex items-center justify-center bg-brandDarkBlue bg-opacity-20 rounded-1/2 z-50`}
+          } lg:hidden h-12 w-12 flex items-center justify-center bg-brandDarkBlue bg-opacity-10 rounded-1/2 z-50`}
           onClick={() => setNavState(!navState)}
         >
           <svg
@@ -143,7 +143,10 @@ const Header: FunctionalComponent = () => {
             viewBox="0 0 448 512"
             class={tw`text-brandDarkBlue h-6`}
           >
-            <path d="M0 96a32 32 0 0 1 32-32h384c17.7 0 32 14.33 32 32 0 17.7-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm0 160c0-17.7 14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm416 192H32c-17.67 0-32-14.3-32-32s14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+            <path
+              fill={"#001524"}
+              d="M0 96a32 32 0 0 1 32-32h384c17.7 0 32 14.33 32 32 0 17.7-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm0 160c0-17.7 14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm416 192H32c-17.67 0-32-14.3-32-32s14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+            />
           </svg>
         </button>
         <nav
