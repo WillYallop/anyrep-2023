@@ -13,7 +13,7 @@ const H1: FunctionalComponent<H1Props> = ({ text, background, className }) => {
     <h1
       class={tw`${
         background === "dark" ? "text-titleLight" : "text-titleDark"
-      } ${className} text-4xl md:text-5xl leading-tight max-w-xl font-bold`}
+      } ${className} md:text-5xl text-4xl leading-tight font-bold`}
     >
       {text}
     </h1>

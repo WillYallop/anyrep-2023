@@ -19,7 +19,7 @@ const Link: FunctionalComponent<LinkProps> = ({
   if (theme === "primary") {
     themeStyles = tw``;
   } else if (theme === "secondary") {
-    themeStyles = tw``;
+    themeStyles = tw`bg-white border border-brandDarkBlue hover:bg-brandDarkBlue hover:text-white`;
   } else if (theme === "white") {
     themeStyles = tw`bg-white hover:bg-whiteHover text-titleDark`;
   }
@@ -27,7 +27,7 @@ const Link: FunctionalComponent<LinkProps> = ({
   return (
     <a
       href={href}
-      class={tw`${themeStyles} ${className} duration-300 text-base font-medium transition-colors flex items-center rounded-xl px-7 h-11`}
+      class={tw`${themeStyles} ${className} text-center duration-300 text-base font-medium transition-colors flex items-center rounded-xl px-7 h-11`}
     >
       {text}
     </a>

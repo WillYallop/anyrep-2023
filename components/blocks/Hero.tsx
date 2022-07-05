@@ -2,18 +2,17 @@
 import { h, FunctionalComponent, JSX } from "preact";
 import { tw } from "@twind";
 import { css } from "twind/css";
+import {
+  roundedSectionOuter,
+  roundedSectionInner,
+  wrapperLarge,
+} from "../../utils/twind.ts";
 // components
 import H1 from "../typography/H1.tsx";
 import Subtitle from "../typography/Subtitle.tsx";
 import Link from "../partials/Link.tsx";
 // Islands
 import MiniBookForm from "../../islands/MiniBookForm.tsx";
-
-import {
-  roundedSectionOuter,
-  roundedSectionInner,
-  wrapperLarge,
-} from "../../utils/twind.ts";
 
 interface HeroBlockProps {
   title: JSX.Element;
@@ -39,7 +38,7 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
           <div
             class={tw`flex flex-col items-start w-full lg:w-1/2 lg:pr-10 px-5 md:px-0 z-10 relative`}
           >
-            <H1 text={title} background={"dark"} />
+            <H1 text={title} background={"dark"} className={"max-w-[550px]"} />
             <Subtitle
               text={description}
               background={"dark"}

@@ -9,7 +9,7 @@ export const config: Configuration = {
 if (IS_BROWSER) setup(config);
 
 // classes
-export const roundedSectionOuter = apply`w-full p-5`;
+export const roundedSectionOuter = apply`w-full px-5 pb-5`;
 export const roundedSectionInner = apply`rounded-2xl w-full`;
 
 export const wrapperLarge = apply`w-full max-w-[1360px] px-5 md:px-10 mx-auto`;

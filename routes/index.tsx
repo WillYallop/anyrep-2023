@@ -2,7 +2,6 @@
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
 // Islands
-import Counter from "../islands/Counter.tsx";
 // Components
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
 import HeroBlock from "../components/blocks/Hero.tsx";

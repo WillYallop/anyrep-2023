@@ -1,6 +1,8 @@
 /** @jsx h */
 import { h, FunctionalComponent } from "preact";
 import { asset } from "$fresh/runtime.ts";
+// Islands
+import Header from "../../islands/Header.tsx";
 
 interface MainWrapperProps {
   seo: {
@@ -24,6 +26,7 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({ children }) => {
     <html>
       <head></head>
       <body>
+        <Header />
         <main>{children}</main>
       </body>
     </html>
