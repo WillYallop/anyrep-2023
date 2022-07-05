@@ -45,8 +45,8 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
               className={tw`max-w-xl mt-7`}
             />
             <Link
-              text={"Book a repair!"}
-              href={"/book"}
+              text={button.text}
+              href={button.url}
               theme={"white"}
               className={"mt-10 !hidden lg:!flex"}
             />
