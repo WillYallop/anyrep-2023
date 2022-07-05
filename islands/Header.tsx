@@ -85,6 +85,8 @@ const Header: FunctionalComponent = () => {
     if (children.length) {
       return (
         <ul
+          role="menu"
+          aria-label="Services"
           class={tw`${
             dropdownState
               ? "lg:opacity-100 lg:translate-y-4 lg:pointer-events-auto"
@@ -96,7 +98,13 @@ const Header: FunctionalComponent = () => {
               <li
                 class={tw` text-base border-t text-brandDarkBlue border-brandDarkBlue border-opacity-10 py-2 first:border-t-0 last:border-b lg:last:border-b-0 first:pt-0 lg:last:pb-0`}
               >
-                <a href={item.href}>{item.title}</a>
+                <a
+                  href={item.href}
+                  role="menuitem"
+                  class={tw`hover:text-brandRed`}
+                >
+                  {item.title}
+                </a>
               </li>
             );
           })}
@@ -123,12 +131,23 @@ const Header: FunctionalComponent = () => {
       <div class={tw`${wrapperLarge} h-full flex items-center justify-between`}>
         <Logo />
         <button
-          class={tw`block lg:hidden h-12 w-12 bg-brandDarkBlue bg-opacity-20 rounded-1/2 z-50`}
+          aria-expanded={navState}
+          aria-label={"Mobile Navigation Button"}
+          class={tw`${
+            navState ? "fixed top-4 right-5" : ""
+          } lg:hidden h-12 w-12 flex items-center justify-center bg-brandDarkBlue bg-opacity-20 rounded-1/2 z-50`}
           onClick={() => setNavState(!navState)}
         >
-          t
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class={tw`text-brandDarkBlue h-6`}
+          >
+            <path d="M0 96a32 32 0 0 1 32-32h384c17.7 0 32 14.33 32 32 0 17.7-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm0 160c0-17.7 14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm416 192H32c-17.67 0-32-14.3-32-32s14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
+          </svg>
         </button>
         <nav
+          role="navigation"
           class={tw`${
             navState ? "right-0" : "-right-full"
           } transition-all overflow-y-auto lg:overflow-y-visible duration-300 fixed top-0 bottom-0 left-auto w-full px-5 lg:px-0 bg-white lg:relative lg:right-auto lg:top-auto lg:bottom-auto z-40  lg:justify-end`}
@@ -137,6 +156,7 @@ const Header: FunctionalComponent = () => {
             class={tw`h-full flex items-center justify-start lg:justify-end `}
           >
             <ul
+              role="menubar"
               class={tw`flex lg:justify-end flex-col lg:flex-row items-start lg:items-center w-full lg:mr-0 m-auto py-10 lg:py-0 lg:w-auto `}
             >
               {navItems.map((item) => {
@@ -146,6 +166,9 @@ const Header: FunctionalComponent = () => {
                     <li
                       id="dropdown-nav-li"
                       role="button"
+                      aria-haspopup="true"
+                      aria-expanded={dropdownState}
+                      aria-label={`${item.title} Navigation Button`}
                       onClick={() => setDropdownState(!dropdownState)}
                       class={tw`px-3 py-2 lg:py-0 font-medium text-2xl w-full lg:w-auto lg:text-base flex justify-center flex-col relative hover:text-brandRed ${
                         dropdownState ? "text-brandRed" : ""
@@ -163,6 +186,7 @@ const Header: FunctionalComponent = () => {
                     >
                       <a
                         href={item.href}
+                        role="menuitem"
                         class={tw`hover:text-brandRed transition-colors duration-300 text-2xl lg:text-base font-medium`}
                       >
                         {item.title}
