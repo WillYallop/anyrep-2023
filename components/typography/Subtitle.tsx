@@ -14,13 +14,13 @@ const Subtitle: FunctionalComponent<SubtitleProps> = ({
   className,
 }) => {
   return (
-    <h1
+    <p
       class={tw`${
         background === "dark" ? "text-titleLight" : "text-titleDark"
       } ${className} text-xl leading-tight  font-medium`}
     >
       {text}
-    </h1>
+    </p>
   );
 };
 

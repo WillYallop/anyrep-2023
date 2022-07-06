@@ -6,6 +6,8 @@ import { tw } from "@twind";
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
 import HeroBlock from "../components/blocks/Hero.tsx";
 import IntroBlock from "../components/blocks/Intro.tsx";
+import CardGridBlock from "../components/blocks/CardGrid.tsx";
+import MapBlock from "../components/blocks/Map.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
@@ -40,7 +42,7 @@ export default function Home() {
           "Book your appliance repair online with Anyrep. It takes less than and couldn't be any easier!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
-      />
+      ></HeroBlock>
       <IntroBlock
         title={
           <H2
@@ -64,7 +66,17 @@ export default function Home() {
             />
           </Fragment>
         }
-      />
+      ></IntroBlock>
+      <CardGridBlock
+        title={"Our Services"}
+        body={
+          "Here are some of the appliances we service. Whether its in need of repair, maintenance or needs replacing entirely. We have the solution for you!"
+        }
+      ></CardGridBlock>
+      <MapBlock
+        title={"Where are we located?"}
+        body={"Anyrep is a family run business operating from Norwich."}
+      ></MapBlock>
     </MainWrapper>
   );
 }

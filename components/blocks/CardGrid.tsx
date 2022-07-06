@@ -6,26 +6,31 @@ import {
   roundedSectionInner,
   wrapperMedium,
 } from "../../utils/twind.ts";
+// COmponents
+import SectionIntro from "../partials/SectionIntro.tsx";
 
-interface IntroProps {
-  title: JSX.Element;
-  textarea: JSX.Element;
+interface CardGridBlockProps {
+  title: string;
+  body: string;
 }
 
-const IntroBlock: FunctionalComponent<IntroProps> = ({ title, textarea }) => {
+const CardGridBlock: FunctionalComponent<CardGridBlockProps> = ({
+  title,
+  body,
+}) => {
   return (
     <section class={tw`${roundedSectionOuter}`}>
-      <div class={tw`${roundedSectionInner} bg-sectionGrey py-20`}>
+      <div class={tw`${roundedSectionInner} py-20`}>
         <div
           class={tw`${wrapperMedium} flex items-start flex-wrap md:flex-nowrap`}
         >
           {/* title */}
           <div class={tw`w-full !md:w-1/3`}>
-            <div class={tw`max-w-sm`}>{title}</div>
+            <SectionIntro title={title} body={body} />
           </div>
-          {/* textarea */}
+          {/* grid */}
           <div class={tw`w-full !md:w-2/3 md:pl-10 pt-6 md:pt-0`}>
-            {textarea}
+            <p>GRID</p>
           </div>
         </div>
       </div>
@@ -33,4 +38,4 @@ const IntroBlock: FunctionalComponent<IntroProps> = ({ title, textarea }) => {
   );
 };
 
-export default IntroBlock;
+export default CardGridBlock;
