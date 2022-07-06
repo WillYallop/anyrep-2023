@@ -43,8 +43,8 @@ const Header: FunctionalComponent = () => {
           href: "/tumble-dryer-repairs",
         },
         {
-          title: "Cooker Repairs",
-          href: "/cooker-repairs",
+          title: "Oven Repairs",
+          href: "/oven-repairs",
         },
         {
           title: "Hob Repairs",

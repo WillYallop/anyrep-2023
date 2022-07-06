@@ -2,27 +2,27 @@
 import { h, JSX, FunctionalComponent } from "preact";
 import { tw } from "@twind";
 
-interface PProps {
+interface H3Props {
   text: string | JSX.Element;
   background?: "light" | "dark";
   className?: string;
 }
 
-const P: FunctionalComponent<PProps> = ({ text, background, className }) => {
+const H3: FunctionalComponent<H3Props> = ({ text, background, className }) => {
   return (
-    <p
+    <h2
       class={tw`${
         background === "dark" ? "text-titleLight" : "text-titleDark"
-      } text-base leading-tight font-normal ${className}`}
+      } ${className} !md:text-lg text-base leading-tight font-bold`}
     >
       {text}
-    </p>
+    </h2>
   );
 };
 
-P.defaultProps = {
+H3.defaultProps = {
   background: "light",
   className: "",
 };
 
-export default P;
+export default H3;

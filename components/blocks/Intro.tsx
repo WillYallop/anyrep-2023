@@ -14,7 +14,7 @@ interface IntroProps {
 
 const IntroBlock: FunctionalComponent<IntroProps> = ({ title, textarea }) => {
   return (
-    <section class={tw`${roundedSectionOuter}`}>
+    <section class={tw`${roundedSectionOuter} pb-0`}>
       <div class={tw`${roundedSectionInner} bg-sectionGrey py-20`}>
         <div
           class={tw`${wrapperMedium} flex items-start flex-wrap md:flex-nowrap`}
@@ -24,7 +24,7 @@ const IntroBlock: FunctionalComponent<IntroProps> = ({ title, textarea }) => {
             <div class={tw`max-w-sm`}>{title}</div>
           </div>
           {/* textarea */}
-          <div class={tw`w-full !md:w-2/3 md:pl-10 pt-6 md:pt-0`}>
+          <div class={tw`w-full !md:w-2/3 md:pl-20 pt-6 md:pt-0`}>
             {textarea}
           </div>
         </div>
