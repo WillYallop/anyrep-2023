@@ -130,25 +130,42 @@ const Header: FunctionalComponent = () => {
     <header class={tw`w-full h-20`}>
       <div class={tw`${wrapperLarge} h-full flex items-center justify-between`}>
         <Logo />
-        <button
-          aria-expanded={navState}
-          aria-label={"Mobile Navigation Button"}
-          class={tw`${
-            navState ? "fixed top-4 right-5" : ""
-          } lg:hidden h-12 w-12 flex items-center justify-center bg-brandDarkBlue bg-opacity-10 rounded-1/2 z-50`}
-          onClick={() => setNavState(!navState)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-            class={tw`text-brandDarkBlue h-6`}
+        <div class={tw`flex ${navState ? "fixed top-4 right-5" : ""} z-50`}>
+          <a
+            class={tw` lg:hidden h-12 w-12 flex items-center justify-center bg-brandGrey rounded-1/2 mr-3`}
+            href="tel:07525150999"
+            aria-label={"Call Anyrep on 07525 150999"}
           >
-            <path
-              fill={"#001524"}
-              d="M0 96a32 32 0 0 1 32-32h384c17.7 0 32 14.33 32 32 0 17.7-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm0 160c0-17.7 14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm416 192H32c-17.67 0-32-14.3-32-32s14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
-            />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              class={tw`h-4 `}
+            >
+              <path
+                fill={"#001524"}
+                d="m511.2 387-23.25 100.8a31.08 31.08 0 0 1-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.97-27.2 24.22-30.45L125.02.8a31.38 31.38 0 0 1 35.78 18.12l46.52 108.5a31.3 31.3 0 0 1-8.98 36.45L144.5 207.1A349.66 349.66 0 0 0 304 366.6l44.08-53.8a31.1 31.1 0 0 1 36.47-8.97l108.5 46.5C506.1 357.2 514.6 372.4 511.2 387z"
+              />
+            </svg>
+          </a>
+          <button
+            aria-expanded={navState}
+            aria-label={"Mobile Navigation Button"}
+            class={tw` lg:hidden h-12 w-12 flex items-center justify-center bg-brandGrey rounded-1/2`}
+            onClick={() => setNavState(!navState)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class={tw`text-brandDarkBlue h-6`}
+            >
+              <path
+                fill={"#001524"}
+                d="M0 96a32 32 0 0 1 32-32h384c17.7 0 32 14.33 32 32 0 17.7-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm0 160c0-17.7 14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.67 0-32-14.3-32-32zm416 192H32c-17.67 0-32-14.3-32-32s14.33-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+              />
+            </svg>
+          </button>
+        </div>
+
         <nav
           role="navigation"
           class={tw`${

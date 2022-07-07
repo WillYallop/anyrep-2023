@@ -18,8 +18,14 @@ const SectionIntro: FunctionalComponent<SectionIntroProps> = ({
   return (
     <div class={tw`w-full max-w-sm`}>
       <H2 text={title} background={"light"} className={tw``} />
-      <P text={body} background={"light"} className={tw` !md:text-xl mt-5`} />
-      <span class={tw`w-20 h-3 block bg-brandRed mt-7`}></span>
+      <P
+        text={body}
+        background={"light"}
+        className={tw` !md:text-xl md:mt-5 mt-2`}
+      />
+      <span
+        class={tw`md:w-20 md:h-3 w-14 h-2 block bg-brandRed md:mt-7 mt-5`}
+      ></span>
     </div>
   );
 };

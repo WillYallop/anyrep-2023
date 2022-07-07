@@ -9,6 +9,7 @@ import HeroBlock from "../components/blocks/Hero.tsx";
 import IntroBlock from "../components/blocks/Intro.tsx";
 import CardGridBlock from "../components/blocks/CardGrid.tsx";
 import MapBlock from "../components/blocks/Map.tsx";
+import AccordionBlock from "../components/blocks/Accordion.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
@@ -242,6 +243,31 @@ export default function Home() {
         title={"Where are we located?"}
         body={"Anyrep is a family run business operating from Norwich."}
       ></MapBlock>
+      <AccordionBlock
+        accordions={[
+          {
+            id: 1,
+            title: "What area do you cover?",
+            body: [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+            ],
+          },
+          {
+            id: 2,
+            title: "What area do you cover?",
+            body: [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+            ],
+          },
+          {
+            id: 3,
+            title: "What area do you cover?",
+            body: [
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+            ],
+          },
+        ]}
+      />
     </MainWrapper>
   );
 }

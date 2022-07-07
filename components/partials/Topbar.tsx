@@ -32,7 +32,7 @@ const TopBar: FunctionalComponent = () => {
             <a
               href="tel:01603433083"
               role="menuitem"
-              class={tw`pl-4 flex items-center hover:underline hover:text-brandRed transition-colors duration-300`}
+              class={tw`pl-4 items-center hover:underline hover:text-brandRed transition-colors duration-300  hidden md:flex`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -47,9 +47,9 @@ const TopBar: FunctionalComponent = () => {
               01604 433083
             </a>
             <a
-              href="tel:07525 150999"
+              href="tel:07525150999"
               role="menuitem"
-              class={tw`pl-4  items-center hover:underline hover:text-brandRed transition-colors duration-300 hidden md:flex`}
+              class={tw`pl-4  items-center hover:underline hover:text-brandRed transition-colors duration-300 flex`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

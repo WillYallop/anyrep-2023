@@ -19,6 +19,7 @@ setup({
     colors: {
       brandRed: "#F82929",
       brandDarkBlue: "#001524",
+      brandGrey: "#EAEAEA",
 
       sectionGrey: "#F9F9F9",
 
