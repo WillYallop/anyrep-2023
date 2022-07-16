@@ -22,6 +22,7 @@ setup({
       brandGrey: "#EAEAEA",
 
       sectionGrey: "#F9F9F9",
+      sectionGreyDark: "#F0F0F0",
 
       white: "#FFFFFF",
       whiteHover: "#E7E7E7",

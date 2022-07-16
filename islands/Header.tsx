@@ -31,7 +31,7 @@ const Header: FunctionalComponent = () => {
           href: "/washing-machine-repairs",
         },
         {
-          title: "Fridge & Freeze Repairs",
+          title: "Fridge & Freezer Repairs",
           href: "/fridge-and-freezer-repairs",
         },
         {
@@ -67,11 +67,6 @@ const Header: FunctionalComponent = () => {
           href: "/microwave-repairs",
         },
       ],
-    },
-    {
-      title: "Posts",
-      href: "/posts",
-      children: [],
     },
     {
       title: "Contact us",

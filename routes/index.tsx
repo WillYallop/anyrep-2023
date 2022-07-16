@@ -10,6 +10,8 @@ import IntroBlock from "../components/blocks/Intro.tsx";
 import CardGridBlock from "../components/blocks/CardGrid.tsx";
 import MapBlock from "../components/blocks/Map.tsx";
 import AccordionBlock from "../components/blocks/Accordion.tsx";
+import CTABlock from "../components/blocks/CTA.tsx";
+import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
@@ -268,6 +270,8 @@ export default function Home() {
           },
         ]}
       />
+      <CTABlock />
+      <Footer />
     </MainWrapper>
   );
 }

@@ -30,23 +30,6 @@ const TopBar: FunctionalComponent = () => {
           </div>
           <div class={tw`flex`}>
             <a
-              href="tel:01603433083"
-              role="menuitem"
-              class={tw`pl-4 items-center hover:underline hover:text-brandRed transition-colors duration-300  hidden md:flex`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                class={tw`h-3 mr-2`}
-              >
-                <path
-                  fill={"#001524"}
-                  d="m511.2 387-23.25 100.8a31.08 31.08 0 0 1-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.97-27.2 24.22-30.45L125.02.8a31.38 31.38 0 0 1 35.78 18.12l46.52 108.5a31.3 31.3 0 0 1-8.98 36.45L144.5 207.1A349.66 349.66 0 0 0 304 366.6l44.08-53.8a31.1 31.1 0 0 1 36.47-8.97l108.5 46.5C506.1 357.2 514.6 372.4 511.2 387z"
-                />
-              </svg>
-              01604 433083
-            </a>
-            <a
               href="tel:07525150999"
               role="menuitem"
               class={tw`pl-4  items-center hover:underline hover:text-brandRed transition-colors duration-300 flex`}
