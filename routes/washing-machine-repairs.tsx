@@ -7,6 +7,7 @@ import { asset } from "$fresh/runtime.ts";
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
 import SimpleHeroBlock from "../components/blocks/SimpleHero.tsx";
 import MapBlock from "../components/blocks/Map.tsx";
+import SimpleCardGridBlock from "../components/blocks/SimpleCardGrid.tsx";
 import AccordionBlock from "../components/blocks/Accordion.tsx";
 import CTABlock from "../components/blocks/CTA.tsx";
 import ServiceIntroBlock from "../components/blocks/ServiceIntro.tsx";
@@ -54,6 +55,54 @@ export default function Home() {
           </Fragment>
         }
       ></ServiceIntroBlock>
+      <SimpleCardGridBlock
+        title={"Common Faults"}
+        body={
+          "These are some common faults with Ovens that we see at Anyrep often."
+        }
+        cards={[
+          {
+            title: "Broken Elements",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "Faulty Fans",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Lights",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+          {
+            title: "No Water",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+          },
+        ]}
+      ></SimpleCardGridBlock>
       <MapBlock
         title={"Where are we located?"}
         body={"Anyrep is a family run business operating from Norwich."}
