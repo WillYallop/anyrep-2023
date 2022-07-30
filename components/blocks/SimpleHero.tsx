@@ -14,7 +14,7 @@ import Link from "../partials/Link.tsx";
 // Islands
 import MiniBookForm from "../../islands/MiniBookForm.tsx";
 
-interface HeroBlockProps {
+interface SimpleHeroBlockProps {
   title: JSX.Element;
   description: string;
   button: {
@@ -23,16 +23,18 @@ interface HeroBlockProps {
   };
 }
 
-const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
+const SimpleHeroBlock: FunctionalComponent<SimpleHeroBlockProps> = ({
   title,
   description,
   button,
 }) => {
   return (
     <section class={tw`${roundedSectionOuter}`}>
-      <div class={tw`${roundedSectionInner} bg-brandDarkBlue relative`}>
+      <div
+        class={tw`${roundedSectionInner} bg-brandDarkBlue relative min-h-[450px] flex items-center`}
+      >
         <div
-          class={tw`${wrapperLarge} flex flex-wrap lg:flex-nowrap items-center pt-20 lg:py-20`}
+          class={tw`${wrapperLarge} flex flex-wrap lg:flex-nowrap items-center py-14 lg:py-20 h-full`}
         >
           {/* textarea */}
           <div
@@ -42,30 +44,21 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
             <Subtitle
               text={description}
               background={"dark"}
-              className={tw`max-w-xl mt-7`}
+              className={tw`max-w-lg mt-7`}
             />
             <Link
               text={button.text}
               href={button.url}
               theme={"white"}
-              className={"mt-10 !hidden lg:!flex"}
+              className={"mt-10 lg:!flex"}
             />
           </div>
-          {/* form */}
-          <div class={tw`w-full mt-20 -mb-5 lg:mt-0 lg:w-1/2 z-10 relative`}>
-            <div
-              class={tw`bg-white h-[450px] rounded-2xl  border-8 border-brandDarkBlue`}
-            >
-              <MiniBookForm start={10} />
-            </div>
-          </div>
-
           {/* bg  */}
           <span
             class={tw`absolute top-0 left-0 right-0 bottom-0 rounded-2xl overflow-hidden`}
           >
             <span
-              class={tw`absolute block right-0 bottom-0 lg:top-10 bg-brandRed w-[50%] top-auto h-[400px] lg:h-auto !lg:w-[55%] z-0 ${css(
+              class={tw`absolute block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
                 {
                   clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
                 }
@@ -78,4 +71,4 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
   );
 };
 
-export default HeroBlock;
+export default SimpleHeroBlock;
