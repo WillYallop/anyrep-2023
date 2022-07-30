@@ -42,7 +42,7 @@ const AccordionRow: FunctionalComponent<AccordionRowProps> = ({
       >
         <button
           id={`accordion-header-${id}`}
-          class={tw`block w-full text-left text-lg font-medium transition duration-300 !focus:outline-none py-2${
+          class={tw`block w-full text-left text-lg font-medium transition-[margin] duration-300 !focus:outline-none py-2${
             state ? "mb-3" : ""
           }`}
           aria-expanded={state}

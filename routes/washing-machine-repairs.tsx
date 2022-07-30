@@ -9,6 +9,7 @@ import SimpleHeroBlock from "../components/blocks/SimpleHero.tsx";
 import MapBlock from "../components/blocks/Map.tsx";
 import AccordionBlock from "../components/blocks/Accordion.tsx";
 import CTABlock from "../components/blocks/CTA.tsx";
+import ServiceIntroBlock from "../components/blocks/ServiceIntro.tsx";
 import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
@@ -40,7 +41,19 @@ export default function Home() {
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
-
+      <ServiceIntroBlock
+        textarea={
+          <Fragment>
+            <P
+              background={"light"}
+              text={
+                "When your cooker breaks down, the impact is drastic and so we ensure Anyrep will do all it can to get your cooker up and running like new. Most repairs are completed on the first visit and on the same day where possible."
+              }
+              className={tw`lg:!text-xl`}
+            />
+          </Fragment>
+        }
+      ></ServiceIntroBlock>
       <MapBlock
         title={"Where are we located?"}
         body={"Anyrep is a family run business operating from Norwich."}
