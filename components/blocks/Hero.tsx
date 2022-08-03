@@ -54,9 +54,9 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
           {/* form */}
           <div class={tw`w-full mt-20 -mb-5 lg:mt-0 lg:w-1/2 z-10 relative`}>
             <div
-              class={tw`bg-white h-[450px] rounded-2xl  border-8 border-brandDarkBlue`}
+              class={tw`bg-white rounded-2xl  border-8 border-brandDarkBlue`}
             >
-              <MiniBookForm start={10} />
+              <MiniBookForm />
             </div>
           </div>
 

@@ -30,7 +30,9 @@ const SimpleCardGridBlock: FunctionalComponent<SimpleCardGridBlockProps> = ({
 }) => {
   const Card: FunctionalComponent<CardProps> = ({ title, body }) => {
     return (
-      <li class={tw`flex flex-col items-start border-t-4`}>
+      <li
+        class={tw`flex flex-col items-start border-t-[6px] border-brandDarkBlue`}
+      >
         <H3 text={title} background={"light"} className={tw`mt-5`} />
         <P text={body} background={"light"} className={tw`mt-2`} />
       </li>

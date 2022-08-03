@@ -11,12 +11,11 @@ import {
 import H1 from "../typography/H1.tsx";
 import Subtitle from "../typography/Subtitle.tsx";
 import Link from "../partials/Link.tsx";
-// Islands
-import MiniBookForm from "../../islands/MiniBookForm.tsx";
-
+import Image, { ImageProps } from "../partials/Image.tsx";
 interface SimpleHeroBlockProps {
   title: JSX.Element;
   description: string;
+  image: ImageProps;
   button: {
     text: string;
     url: string;
@@ -27,6 +26,7 @@ const SimpleHeroBlock: FunctionalComponent<SimpleHeroBlockProps> = ({
   title,
   description,
   button,
+  image,
 }) => {
   return (
     <section class={tw`${roundedSectionOuter}`}>
@@ -54,17 +54,26 @@ const SimpleHeroBlock: FunctionalComponent<SimpleHeroBlockProps> = ({
             />
           </div>
           {/* bg  */}
-          <span
+          <div
             class={tw`absolute top-0 left-0 right-0 bottom-0 rounded-2xl overflow-hidden`}
           >
+            <div
+              class={tw` hidden absolute lg:block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
+                {
+                  clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
+                }
+              )}`}
+            >
+              <Image {...image} />
+            </div>
             <span
-              class={tw`absolute block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
+              class={tw`absolute block lg:hidden right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
                 {
                   clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
                 }
               )}`}
             ></span>
-          </span>
+          </div>
         </div>
       </div>
     </section>

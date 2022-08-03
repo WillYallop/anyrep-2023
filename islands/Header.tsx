@@ -80,7 +80,6 @@ const Header: FunctionalComponent = () => {
     if (children.length) {
       return (
         <ul
-          role="menu"
           aria-label="Services"
           class={tw`${
             dropdownState
@@ -95,8 +94,8 @@ const Header: FunctionalComponent = () => {
               >
                 <a
                   href={item.href}
-                  role="menuitem"
-                  class={tw`hover:text-brandRed`}
+                  tabIndex={dropdownState ? 0 : -1}
+                  class={tw`hover:text-brandRed transition-colors duration-300 text-2xl lg:text-base font-medium`}
                 >
                   {item.title}
                 </a>
@@ -180,16 +179,22 @@ const Header: FunctionalComponent = () => {
                   return (
                     <li
                       id="dropdown-nav-li"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded={dropdownState}
-                      aria-label={`${item.title} Navigation Button`}
-                      onClick={() => setDropdownState(!dropdownState)}
-                      class={tw`px-3 py-2 lg:py-0 font-medium text-2xl w-full lg:w-auto lg:text-base flex justify-center flex-col relative hover:text-brandRed ${
+                      class={tw`px-3 py-2 lg:py-0 font-medium text-2xl w-full lg:w-auto lg:text-base flex justify-center flex-col relative ${
                         dropdownState ? "text-brandRed" : ""
                       }`}
                     >
-                      {item.title} {dropdown(item.children)}
+                      <button
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded={dropdownState}
+                        aria-label={`${item.title} Navigation Button`}
+                        onClick={() => {
+                          setDropdownState(!dropdownState);
+                        }}
+                      >
+                        {item.title}
+                      </button>
+                      {dropdown(item.children)}
                     </li>
                   );
                 }

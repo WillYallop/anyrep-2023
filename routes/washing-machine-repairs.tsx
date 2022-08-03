@@ -40,6 +40,25 @@ export default function Home() {
         description={
           "If you have a faulty washing machine, dont hesitate to contact Anyrep today and get it fixed!"
         }
+        image={{
+          formats: [
+            {
+              url: asset("/images/washingMachines/card.avif"),
+              mime: "image/avif",
+            },
+            {
+              url: asset("/images/washingMachines/card.webp"),
+              mime: "image/webp",
+            },
+            {
+              url: asset("/images/washingMachines/card.jpg"),
+              mime: "image/jpg",
+            },
+          ],
+          alt: "A man using a washing machine.",
+          src: asset("/images/washingMachines/card.jpg"),
+          loading: "eager",
+        }}
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
       <ServiceIntroBlock
