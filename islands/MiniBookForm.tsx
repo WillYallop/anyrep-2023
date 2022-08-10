@@ -9,6 +9,7 @@ import Textarea from "../components/input/Textarea.tsx";
 
 const MiniBookForm: FunctionalComponent = () => {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [appliance, setAppliance] = useState("");
   const [message, setMessage] = useState("");
@@ -35,17 +36,28 @@ const MiniBookForm: FunctionalComponent = () => {
           required={true}
         />
       </div>
-      <Input
-        label="Appliance (*)"
-        name={"appliance"}
-        value={appliance}
-        updateValue={setAppliance}
-        autoComplete={"off"}
-        type={"text"}
-        required={true}
-      />
+      <div class={tw`grid grid-cols-2 gap-5`}>
+        <Input
+          label="Email (*)"
+          name={"email"}
+          value={email}
+          updateValue={setEmail}
+          autoComplete={"email"}
+          type={"email"}
+          required={true}
+        />
+        <Input
+          label="Appliance (*)"
+          name={"appliance"}
+          value={appliance}
+          updateValue={setAppliance}
+          autoComplete={"off"}
+          type={"text"}
+          required={true}
+        />
+      </div>
       <Textarea
-        label="Message"
+        label="What's the issue?"
         name={"message"}
         value={message}
         updateValue={setMessage}

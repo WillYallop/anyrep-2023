@@ -30,7 +30,6 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({ children }) => {
           name="trustpilot-one-time-domain-verification-id"
           content="476ecccd-155d-43f0-9694-afc8949543fd"
         />
-        // schema.org organisation script
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
