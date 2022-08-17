@@ -16,7 +16,7 @@ import Footer from "../components/blocks/Footer.tsx";
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
 
-export default function Home() {
+export default function WashingMachineRepairs() {
   // SEO
   const SEO = {
     meta: {

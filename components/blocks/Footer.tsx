@@ -57,14 +57,6 @@ const FooterBlock = () => {
                 </li>
                 <li>
                   <a
-                    href="/contact-us"
-                    class={tw`py-1 block hover:text-brandRed`}
-                  >
-                    Contact us
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="https://www.facebook.com/anyrep/"
                     class={tw`py-1 block hover:text-brandRed`}
                   >

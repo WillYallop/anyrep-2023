@@ -15,8 +15,8 @@ import Image, { ImageProps } from "../partials/Image.tsx";
 interface SimpleHeroBlockProps {
   title: JSX.Element;
   description: string;
-  image: ImageProps;
-  button: {
+  image?: ImageProps;
+  button?: {
     text: string;
     url: string;
   };
@@ -46,26 +46,38 @@ const SimpleHeroBlock: FunctionalComponent<SimpleHeroBlockProps> = ({
               background={"dark"}
               className={tw`max-w-lg mt-7`}
             />
-            <Link
-              text={button.text}
-              href={button.url}
-              theme={"white"}
-              className={"mt-10 lg:!flex"}
-            />
+            {button ? (
+              <Link
+                text={button.text}
+                href={button.url}
+                theme={"white"}
+                className={"mt-10 lg:!flex"}
+              />
+            ) : null}
           </div>
           {/* bg  */}
           <div
             class={tw`absolute top-0 left-0 right-0 bottom-0 rounded-2xl overflow-hidden`}
           >
-            <div
-              class={tw` hidden absolute lg:block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
-                {
-                  clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
-                }
-              )}`}
-            >
-              <Image {...image} />
-            </div>
+            {image ? (
+              <div
+                class={tw` hidden absolute lg:block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
+                  {
+                    clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
+                  }
+                )}`}
+              >
+                <Image {...image} />
+              </div>
+            ) : (
+              <span
+                class={tw`absolute block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
+                  {
+                    clipPath: "polygon(100% 0, 0% 100%, 100% 100%)",
+                  }
+                )}`}
+              ></span>
+            )}
             <span
               class={tw`absolute block lg:hidden right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto !lg:w-[55%] z-0 ${css(
                 {

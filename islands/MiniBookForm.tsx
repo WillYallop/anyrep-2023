@@ -103,7 +103,7 @@ const MiniBookForm: FunctionalComponent = () => {
 
   return (
     <form
-      class={tw`p-5`}
+      class={tw`w-full`}
       onSubmit={handleSubmit}
       onChange={onChange}
       noValidate={true}
@@ -146,14 +146,14 @@ const MiniBookForm: FunctionalComponent = () => {
         />
         <Input
           id={"applianceInp"}
-          label="Appliance (*)"
+          label="Appliance"
           error={applianceError}
           name={"appliance"}
           value={appliance}
           updateValue={setAppliance}
           autoComplete={"off"}
           type={"text"}
-          required={true}
+          required={false}
         />
       </div>
       <Textarea

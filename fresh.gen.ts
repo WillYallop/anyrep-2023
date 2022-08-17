@@ -3,8 +3,9 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $0 from "./routes/api/book.ts";
-import * as $1 from "./routes/index.tsx";
-import * as $2 from "./routes/washing-machine-repairs.tsx";
+import * as $1 from "./routes/book.tsx";
+import * as $2 from "./routes/index.tsx";
+import * as $3 from "./routes/washing-machine-repairs.tsx";
 import * as $$0 from "./islands/AccordionRow.tsx";
 import * as $$1 from "./islands/Header.tsx";
 import * as $$2 from "./islands/MiniBookForm.tsx";
@@ -12,8 +13,9 @@ import * as $$2 from "./islands/MiniBookForm.tsx";
 const manifest = {
   routes: {
     "./routes/api/book.ts": $0,
-    "./routes/index.tsx": $1,
-    "./routes/washing-machine-repairs.tsx": $2,
+    "./routes/book.tsx": $1,
+    "./routes/index.tsx": $2,
+    "./routes/washing-machine-repairs.tsx": $3,
   },
   islands: {
     "./islands/AccordionRow.tsx": $$0,

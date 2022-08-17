@@ -10,23 +10,17 @@ import {
 // components
 import H1 from "../typography/H1.tsx";
 import Subtitle from "../typography/Subtitle.tsx";
-import Link from "../partials/Link.tsx";
 // Islands
 import MiniBookForm from "../../islands/MiniBookForm.tsx";
 
 interface HeroBlockProps {
   title: JSX.Element;
   description: string;
-  button: {
-    text: string;
-    url: string;
-  };
 }
 
 const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
   title,
   description,
-  button,
 }) => {
   return (
     <section class={tw`${roundedSectionOuter}`}>
@@ -44,17 +38,11 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
               background={"dark"}
               className={tw`max-w-xl mt-7`}
             />
-            <Link
-              text={button.text}
-              href={button.url}
-              theme={"white"}
-              className={"mt-10 !hidden lg:!flex"}
-            />
           </div>
           {/* form */}
           <div class={tw`w-full mt-20 -mb-5 lg:mt-0 lg:w-1/2 z-10 relative`}>
             <div
-              class={tw`bg-white rounded-2xl  border-8 border-brandDarkBlue`}
+              class={tw`bg-white rounded-2xl  border-8 border-brandDarkBlue p-5`}
             >
               <MiniBookForm />
             </div>

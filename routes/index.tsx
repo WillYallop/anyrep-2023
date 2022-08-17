@@ -45,7 +45,6 @@ export default function Home() {
         description={
           "Book your appliance repair online with Anyrep. It takes less than and couldn't be any easier!"
         }
-        button={{ text: "Contact us!", url: "/contact-us" }}
       ></HeroBlock>
       <IntroBlock
         title={
