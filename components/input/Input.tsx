@@ -3,7 +3,9 @@ import { h, FunctionalComponent } from "preact";
 import { tw } from "@twind";
 
 interface InputProps {
+  id: string;
   label: string;
+  error: boolean;
   name: string;
   value: string;
   autoComplete?: string;
@@ -13,7 +15,9 @@ interface InputProps {
 }
 
 const Input: FunctionalComponent<InputProps> = ({
+  id,
   name,
+  error,
   label,
   value,
   autoComplete,
@@ -22,11 +26,14 @@ const Input: FunctionalComponent<InputProps> = ({
   required,
 }) => {
   return (
-    <div class={tw`flex flex-col mb-2.5`}>
-      <label class={tw`flex flex-col text-sm`}>
+    <div class={tw`flex flex-col mb-2.5`} id={`i-wrapper_${id}`}>
+      <label class={tw`flex flex-col text-sm`} htmlFor={id}>
         {label}
         <input
-          class={tw`w-full px-3 h-10 border border-gray-300 rounded-lg mt-1.5 text-base`}
+          id={id}
+          class={tw`w-full px-3 h-10 border border-gray-300 rounded-lg mt-1.5 text-base  ${
+            error ? "!border-brandRed" : ""
+          }`}
           name={name}
           autoComplete={autoComplete}
           value={value}

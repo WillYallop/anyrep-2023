@@ -23,6 +23,11 @@ const Header: FunctionalComponent = () => {
   // Nav Items
   const navItems: Array<NavItems> = [
     {
+      title: "Home",
+      href: "/",
+      children: [],
+    },
+    {
       title: "Our Services",
       href: undefined,
       children: [
@@ -67,11 +72,6 @@ const Header: FunctionalComponent = () => {
           href: "/microwave-repairs",
         },
       ],
-    },
-    {
-      title: "Contact us",
-      href: "/contact-us",
-      children: [],
     },
   ];
 
@@ -188,6 +188,7 @@ const Header: FunctionalComponent = () => {
                         aria-haspopup="true"
                         aria-expanded={dropdownState}
                         aria-label={`${item.title} Navigation Button`}
+                        class={tw`hover:text-brandRed transition-colors duration-300 text-2xl lg:text-base font-medium`}
                         onClick={() => {
                           setDropdownState(!dropdownState);
                         }}
