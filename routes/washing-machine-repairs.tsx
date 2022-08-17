@@ -2,6 +2,7 @@
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
 import { asset } from "$fresh/runtime.ts";
+import { HandlerContext, Handlers } from "$fresh/server.ts";
 // Islands
 // Components
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
@@ -13,8 +14,15 @@ import CTABlock from "../components/blocks/CTA.tsx";
 import ServiceIntroBlock from "../components/blocks/ServiceIntro.tsx";
 import Footer from "../components/blocks/Footer.tsx";
 // Typography
-import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
+
+export const handler: Handlers = {
+  async GET(_req: Request, ctx: HandlerContext) {
+    const resp = await ctx.render();
+    resp.headers.set("Cache-Control", "max-age=31536000");
+    return resp;
+  },
+};
 
 export default function WashingMachineRepairs() {
   // SEO
