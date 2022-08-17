@@ -2,6 +2,7 @@ module.exports = {
   theme: {
     colors: {
       brandRed: "#F82929",
+      brandRedHover: "#c52020",
       brandDarkBlue: "#001524",
       brandGrey: "#EAEAEA",
 

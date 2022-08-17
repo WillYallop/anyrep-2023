@@ -46,19 +46,19 @@ const FooterBlock = () => {
               <ul>
                 <li class={tw`font-bold mb-2`}>Pages</li>
                 <li>
-                  <a href="/" class={tw`py-1 block hover:text-brandRed`}>
+                  <a href="/" class={tw`py-2 block hover:text-brandRed`}>
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/book" class={tw`py-1 block hover:text-brandRed`}>
+                  <a href="/book" class={tw`py-2 block hover:text-brandRed`}>
                     Book
                   </a>
                 </li>
                 <li>
                   <a
                     href="https://www.facebook.com/anyrep/"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Facebook
                   </a>
@@ -66,7 +66,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578/"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Yell
                   </a>
@@ -74,7 +74,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="https://uk.trustpilot.com/review/anyrep.co.uk"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Trustpilot
                   </a>
@@ -82,7 +82,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/sitemap.xml"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Sitemap
                   </a>
@@ -93,7 +93,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/washing-machine-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Washing Machines
                   </a>
@@ -101,7 +101,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/fridge-and-freezer-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Fridges & Freezers
                   </a>
@@ -109,7 +109,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/dishwasher-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Dishwashers
                   </a>
@@ -117,7 +117,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/tumble-dryer-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Tumble Dryers
                   </a>
@@ -125,7 +125,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/oven-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Ovens
                   </a>
@@ -133,7 +133,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/hob-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Hobs
                   </a>
@@ -141,7 +141,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/commercial-appliance-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Commercial Appliances
                   </a>
@@ -149,7 +149,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/extractor-hood-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Extractor Hoods
                   </a>
@@ -157,7 +157,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/hoover-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Hoovers
                   </a>
@@ -165,7 +165,7 @@ const FooterBlock = () => {
                 <li>
                   <a
                     href="/microwave-repairs"
-                    class={tw`py-1 block hover:text-brandRed`}
+                    class={tw`py-2 block hover:text-brandRed`}
                   >
                     Microwaves
                   </a>
@@ -183,7 +183,10 @@ const FooterBlock = () => {
           text={
             <Fragment>
               Website design and development by{" "}
-              <a class={tw`text-brandRed`} href="https://williamyallop.com/">
+              <a
+                class={tw`text-brandRedHover`}
+                href="https://williamyallop.com/"
+              >
                 William Yallop
               </a>
             </Fragment>

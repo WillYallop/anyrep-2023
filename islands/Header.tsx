@@ -161,7 +161,6 @@ const Header: FunctionalComponent = () => {
         </div>
 
         <nav
-          role="navigation"
           class={tw`${
             navState ? "right-0" : "-right-full"
           } transition-all overflow-y-auto lg:overflow-y-visible duration-300 fixed top-0 bottom-0 left-auto w-full px-5 lg:px-0 bg-white lg:relative lg:right-auto lg:top-auto lg:bottom-auto z-40  lg:justify-end`}
@@ -170,7 +169,6 @@ const Header: FunctionalComponent = () => {
             class={tw`h-full flex items-center justify-start lg:justify-end `}
           >
             <ul
-              role="menubar"
               class={tw`flex lg:justify-end flex-col lg:flex-row items-start lg:items-center w-full lg:mr-0 m-auto py-10 lg:py-0 lg:w-auto `}
             >
               {navItems.map((item) => {
@@ -207,7 +205,6 @@ const Header: FunctionalComponent = () => {
                     >
                       <a
                         href={item.href}
-                        role="menuitem"
                         class={tw`hover:text-brandRed transition-colors duration-300 text-2xl lg:text-base font-medium`}
                       >
                         {item.title}
