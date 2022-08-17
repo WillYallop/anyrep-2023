@@ -20,16 +20,19 @@ export default function Home() {
   // SEO
   const SEO = {
     meta: {
-      title: "Homepage",
-      description: "I am the description",
+      title: "Anyrep Appliance Repairs | Norwich, Norfolk | Book online",
+      description:
+        "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
     og: {
       title: "Homepage",
-      description: "I am the description",
+      description:
+        "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
     twitter: {
       title: "Homepage",
-      description: "I am the description",
+      description:
+        "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
   };
 

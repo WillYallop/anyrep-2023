@@ -65,7 +65,7 @@ const FooterBlock = () => {
                 </li>
                 <li>
                   <a
-                    href="/https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578/"
+                    href="https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578/"
                     class={tw`py-1 block hover:text-brandRed`}
                   >
                     Yell

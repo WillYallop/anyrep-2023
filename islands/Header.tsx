@@ -188,7 +188,7 @@ const Header: FunctionalComponent = () => {
                         aria-haspopup="true"
                         aria-expanded={dropdownState}
                         aria-label={`${item.title} Navigation Button`}
-                        class={tw`hover:text-brandRed transition-colors duration-300 text-2xl lg:text-base font-medium`}
+                        class={tw`hover:text-brandRed transition-colors duration-300 text-xl lg:text-base lg:font-medium text-left`}
                         onClick={() => {
                           setDropdownState(!dropdownState);
                         }}

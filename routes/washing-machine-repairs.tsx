@@ -104,22 +104,6 @@ export default function WashingMachineRepairs() {
             title: "No Water",
             body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
           },
-          {
-            title: "No Water",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
-          },
-          {
-            title: "No Water",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
-          },
-          {
-            title: "No Water",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
-          },
-          {
-            title: "No Water",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
-          },
         ]}
       ></SimpleCardGridBlock>
       <MapBlock
