@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h, FunctionalComponent } from "preact";
-import { asset } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 // Islands
 import Header from "../../islands/Header.tsx";
 import TopBar from "../partials/Topbar.tsx";
@@ -28,7 +28,7 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
 }) => {
   return (
     <html>
-      <head>
+      <Head>
         <title>{seo.meta.title}</title>
         <meta name="description" content={seo.meta.description} />
         {/* og meta */}
@@ -100,7 +100,7 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
             }),
           }}
         />
-      </head>
+      </Head>
       <body>
         <TopBar />
         <Header />

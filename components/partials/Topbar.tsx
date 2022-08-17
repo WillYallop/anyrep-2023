@@ -8,7 +8,7 @@ const TopBar: FunctionalComponent = () => {
     <div class={tw`w-full border-b border-brandDarkBlue border-opacity-20 h-8`}>
       <div class={tw`${wrapperLarge} h-full`}>
         <ul class={tw`h-full flex items-center justify-between`}>
-          <div>
+          <li>
             <a
               href="https://www.facebook.com/anyrep/"
               title={"Vist our Facebook"}
@@ -26,8 +26,8 @@ const TopBar: FunctionalComponent = () => {
               </svg>
               Facebook
             </a>
-          </div>
-          <div class={tw`flex`}>
+          </li>
+          <li class={tw`flex`}>
             <a
               href="tel:07525150999"
               class={tw`pl-4  items-center hover:underline hover:text-brandRed transition-colors duration-300 flex`}
@@ -60,7 +60,7 @@ const TopBar: FunctionalComponent = () => {
               </svg>
               anyrep@gmail.com
             </a>
-          </div>
+          </li>
         </ul>
       </div>
     </div>
