@@ -74,7 +74,24 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
               "@type": "Organization",
               name: "Anyrep Appliance Repairs",
               url: "https://anyrep.co.uk",
-              image: "https://anyrep.co.uk/images/logo.png",
+              image: asset("images/anyrep_metaimage.png"),
+              description:
+                "Here at Anyrep Appliance Repairs we offer our reliable services on the same day where possible! So if you need your appliance repaired and you reside in the Norwich, Norfolk area then look no further. We have over 25 years of experience in the trade and our services are carried out by factory trained professionals. ",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "3 Montrose Court, Norwich, Norfolk, NR7 0RY",
+                addressLocality: "Norwich",
+                addressRegion: "Norfolk",
+                postalCode: "NR7 0RY",
+                addressCountry: "GB",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: "52.63937885926824",
+                longitude: "1.3615421040698772",
+              },
+              telephone: "+44 (0)7525 150999",
+              openingHours: "Mo, Tu, We, Th, Fr 08:00-17:00",
               sameAs: [
                 "https://www.facebook.com/anyrep",
                 "https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578",
