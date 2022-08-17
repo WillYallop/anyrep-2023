@@ -2,7 +2,7 @@
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
 import { asset } from "$fresh/runtime.ts";
-// Islands
+import { HandlerContext, Handlers, PageProps } from "$fresh/server.ts";
 // Components
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
 import HeroBlock from "../components/blocks/Hero.tsx";
@@ -15,6 +15,14 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
+
+export const handler: Handlers = {
+  async GET(_req: Request, ctx: HandlerContext) {
+    const resp = await ctx.render();
+    resp.headers.set("Cache-Control", "public, max-age=31536000");
+    return resp;
+  },
+};
 
 export default function Home() {
   // SEO
