@@ -25,12 +25,12 @@ export default function Home() {
         "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
     og: {
-      title: "Homepage",
+      title: "Anyrep Appliance Repairs | Norwich, Norfolk | Book online",
       description:
         "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
     twitter: {
-      title: "Homepage",
+      title: "Anyrep Appliance Repairs | Norwich, Norfolk | Book online",
       description:
         "With over 20 years of experience serving the Norwich, Norfolk area. Trust Anyrep to get your appliance back up and running. Book online or call us today!",
     },
