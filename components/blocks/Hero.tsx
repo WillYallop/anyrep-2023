@@ -10,6 +10,7 @@ import {
 // components
 import H1 from "../typography/H1.tsx";
 import Subtitle from "../typography/Subtitle.tsx";
+import Link from "../partials/Link.tsx";
 // Islands
 import MiniBookForm from "../../islands/MiniBookForm.tsx";
 
@@ -38,6 +39,25 @@ const HeroBlock: FunctionalComponent<HeroBlockProps> = ({
               background={"dark"}
               className={tw`max-w-xl mt-7`}
             />
+
+            <a
+              href={"https://uk.trustpilot.com/review/anyrep.co.uk"}
+              target={"_blank"}
+              class={tw`bg-white border border-brandDarkBlue mt-10 hover:bg-whiteHover text-center  duration-300 text-base font-medium transition-colors flex items-center rounded-xl px-7 h-11`}
+            >
+              <svg
+                viewBox="0 0 799.9 761"
+                xmlns="http://www.w3.org/2000/svg"
+                class={tw`w-6 h-6 mr-2`}
+              >
+                <path
+                  d="M799.9 290.8H494.4L400.1 0l-94.7 290.8L0 290.5l247.4 180L152.7 761l247.4-179.6L647 761l-94.3-290.5z"
+                  fill="#00b67a"
+                />
+                <path d="m574 536.2-21.2-65.7-152.7 110.9z" fill="#005128" />
+              </svg>
+              Leave us a review
+            </a>
           </div>
           {/* form */}
           <div class={tw`w-full mt-20 -mb-5 lg:mt-0 lg:w-1/2 z-10 relative`}>

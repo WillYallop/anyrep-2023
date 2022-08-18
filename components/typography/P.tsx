@@ -13,7 +13,7 @@ const P: FunctionalComponent<PProps> = ({ text, background, className }) => {
     <p
       class={tw`${
         background === "dark" ? "text-titleLight" : "text-titleDark"
-      } text-base leading-tight font-normal ${className}`}
+      } text-base leading-normal font-normal ${className}`}
     >
       {text}
     </p>

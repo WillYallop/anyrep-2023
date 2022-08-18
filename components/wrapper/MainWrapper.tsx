@@ -31,6 +31,8 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
       <Head>
         <title>{seo.meta.title}</title>
         <meta name="description" content={seo.meta.description} />
+        <meta name="robots" content="noindex" />
+
         {/* og meta */}
         <meta property="og:title" content={seo.og.title} />
         <meta property="og:description" content={seo.og.description} />

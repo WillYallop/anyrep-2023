@@ -17,7 +17,9 @@ const FooterBlock = () => {
       <div class={tw`${roundedSectionInner} bg-sectionGrey py-12 mb-2.5`}>
         <div class={tw`${wrapperLarge}  lg:flex justify-between `}>
           <div class={tw`lg:pr-12`}>
-            <Logo />
+            <div class={tw`w-44`}>
+              <Logo />
+            </div>
             <div class={tw`mt-10`}>
               <P text={"Address:"} className={tw`mb-1 font-bold`} />
               <address

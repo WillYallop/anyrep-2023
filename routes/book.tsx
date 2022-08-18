@@ -1,7 +1,6 @@
 /** @jsx h */
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
-import { HandlerContext, Handlers } from "$fresh/server.ts";
 import {
   roundedSectionOuter,
   roundedSectionInner,
@@ -15,14 +14,6 @@ import AccordionBlock from "../components/blocks/Accordion.tsx";
 import Footer from "../components/blocks/Footer.tsx";
 // Islands
 import MiniBookForm from "../islands/MiniBookForm.tsx";
-
-export const handler: Handlers = {
-  async GET(_req: Request, ctx: HandlerContext) {
-    const resp = await ctx.render();
-    resp.headers.set("Cache-Control", "max-age=31536000");
-    return resp;
-  },
-};
 
 export default function Book() {
   // SEO

@@ -16,19 +16,21 @@ const AccordionRow: FunctionalComponent<AccordionRowProps> = ({
   body,
   id,
 }) => {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(id === 1 ? true : false);
   const [maxHeight, setMaxHeight] = useState<number>(1000);
 
   const ref = createRef();
 
   useEffect(() => {
     setMaxHeight(ref.current.scrollHeight);
+    if (id === 1) {
+      toggleAccordion(state);
+    }
   }, []);
 
   const toggleAccordion = (s: boolean) => {
     setState(s);
     if (s) {
-      console.log("here");
       ref.current.style.maxHeight = `${maxHeight}px`;
     } else ref.current.style.maxHeight = `${0}px`;
   };

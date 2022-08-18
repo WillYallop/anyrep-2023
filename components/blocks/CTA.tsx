@@ -22,8 +22,7 @@ const CTABlock: FunctionalComponent = () => {
           <H2 background={"dark"} text={`Book a repair`} className={tw`mb-6`} />
           <P
             background={"dark"}
-            text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit
-            amet bibendum tortor. Aenean vitae dui tortor.`}
+            text={`Let Anyrep help get your appliance back up and running like new. Call us, or send us a booking enquiry - it takes less than a minute!`}
           />
           <Link
             text={"Book a repair!"}

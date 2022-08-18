@@ -2,7 +2,6 @@
 import { h, Fragment } from "preact";
 import { tw } from "@twind";
 import { asset } from "$fresh/runtime.ts";
-import { HandlerContext, Handlers } from "$fresh/server.ts";
 // Components
 import MainWrapper from "../components/wrapper/MainWrapper.tsx";
 import HeroBlock from "../components/blocks/Hero.tsx";
@@ -15,14 +14,6 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import H2 from "../components/typography/H2.tsx";
 import P from "../components/typography/P.tsx";
-
-export const handler: Handlers = {
-  async GET(_req: Request, ctx: HandlerContext) {
-    const resp = await ctx.render();
-    resp.headers.set("Cache-Control", "max-age=31536000");
-    return resp;
-  },
-};
 
 export default function Home() {
   // SEO
@@ -54,7 +45,7 @@ export default function Home() {
           </Fragment>
         }
         description={
-          "Book your appliance repair online with Anyrep. It takes less than and couldn't be any easier!"
+          "Book your appliance repair online with Anyrep today and we'll help get your appliance back up and running!"
         }
       ></HeroBlock>
       <IntroBlock
@@ -75,7 +66,7 @@ export default function Home() {
             <P
               background={"light"}
               text={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis. Integer aliquam nisl ac ipsum feugiat iaculis. Donec metus ex, dictum vitae magna et, aliquet imperdiet lacus. Morbi non neque lacinia, faucibus tellus ac, commodo nunc. Aliquam ultrices sed dolor nec congue."
+                "Here at Anyrep Appliance Repairs, we offer our reliable services on the same day where possible! So if you need your appliance repaired and reside in the Norwich, Norfolk area look no further. We have over 25 years of experience in the trade and all of our services are carried out by factory-trained professionals."
               }
             />
           </Fragment>
@@ -84,7 +75,7 @@ export default function Home() {
       <CardGridBlock
         title={"Our Services"}
         body={
-          "Here are some of the appliances we service. Whether its in need of repair, maintenance or needs replacing entirely. We have the solution for you!"
+          "Here are some of the appliances we service. Whether it needs repair, maintenance or replacing entirely. We have the solution for you!"
         }
         cards={[
           {
@@ -108,7 +99,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Washing Machines Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Blocked pump, failing to spin, not draining? Is the door stuck, leaking or perhaps a noisy drum? Don't worry.",
             link: {
               href: "/washing-machine-repairs",
               text: "Find out more",
@@ -135,7 +126,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Fridge & Freezer Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Has it stopped making ice? Is it leaking, is there condensation on the inside? Is it not cold, is the light out?",
             link: {
               href: "/fridge-and-freezer-repairs",
               text: "Find out more",
@@ -162,7 +153,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Dishwasher Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Have you got a broken hinge, blocked pumps, or a broken panel? Is it leaking, making loud noises, or just not cleaning?",
             link: {
               href: "/dishwasher-repairs",
               text: "Find out more",
@@ -189,7 +180,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Tumble Dryer Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Noisy operation? No drum action? Snapped belt, leaking, broken timer? Or maybe your clothes are just not drying!",
             link: {
               href: "/tumble-dryer-repairs",
               text: "Find out more",
@@ -216,7 +207,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Oven Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Not heating, broken door? Smells of gas, broken thermostat, broken seal? Fan not spinning, or perhaps the grills broke? ",
             link: {
               href: "/oven-repairs",
               text: "Find out more",
@@ -243,7 +234,7 @@ export default function Home() {
               loading: "lazy",
             },
             title: "Commercial Appliance Repairs",
-            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. ",
+            body: "Whether your commercial refrigerator, oven, fryer, cooker, freezer, icemaker, washer or cooler is broken. We can fix it!",
             link: {
               href: "/commercial-appliance-repairs",
               text: "Find out more",
@@ -261,21 +252,28 @@ export default function Home() {
             id: 1,
             title: "What area do you cover?",
             body: [
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+              "At Anyrep, we offer our appliance repair services to the greater Norwich, Norfolk area. So, if you reside there and need your appliance repaired, don't hesitate to contact us right away.",
             ],
           },
           {
             id: 2,
-            title: "What area do you cover?",
+            title: "How long will my repair take?",
             body: [
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+              "We aim to complete repairs on the same day where possible, and they typically last between 1 and 2 hours. But in the case, you require a part we don't keep in stock, we will rearrange another visit ASAP.",
             ],
           },
           {
             id: 3,
-            title: "What area do you cover?",
+            title: "Will my machine need new parts?",
             body: [
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet bibendum tortor. Aenean vitae dui tortor. Morbi aliquet leo ut quam luctus venenatis",
+              "Depending on the issue with your appliance you may not need parts. However, in the case you do, we keep common parts in stock so we can ensure a speedy and professional repair service.",
+            ],
+          },
+          {
+            id: 4,
+            title: "How does your pricing work?",
+            body: [
+              "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of anys parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
             ],
           },
         ]}
