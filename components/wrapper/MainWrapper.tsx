@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h, FunctionalComponent } from "preact";
+import { tw } from "@twind";
 import { asset, Head } from "$fresh/runtime.ts";
 // Islands
 import Header from "../../islands/Header.tsx";
@@ -102,11 +103,30 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
             }),
           }}
         />
+        <script
+          type="text/javascript"
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          async
+        ></script>
       </Head>
       <body>
         <TopBar />
         <Header />
         <main>{children}</main>
+
+        <a
+          href="tel:07525150999"
+          class={tw`fixed right-5 bottom-5 h-16 w-16 bg-brandRed rounded-full z-50 hover:bg-brandRedHover text-white flex items-center justify-center`}
+          aria-label={`Call us on 07525 150999`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            class={tw`h-6 w-6 fill-current`}
+          >
+            <path d="m511.2 387-23.3 100.8a31 31 0 0 1-30.4 24.2A458 458 0 0 1 0 54.5a31 31 0 0 1 24.2-30.4L125 .8a31.4 31.4 0 0 1 35.8 18.1l46.5 108.5a31.3 31.3 0 0 1-9 36.5L144.5 207A349.7 349.7 0 0 0 304 366.6l44-53.8a31.1 31.1 0 0 1 36.5-9L493 350.3c13.1 6.9 21.6 22.1 18.2 36.7z" />
+          </svg>
+        </a>
       </body>
     </html>
   );

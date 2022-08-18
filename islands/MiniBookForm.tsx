@@ -128,7 +128,7 @@ const MiniBookForm: FunctionalComponent = () => {
           value={number}
           updateValue={setNumber}
           autoComplete={"tel"}
-          type={"number"}
+          type={"tel"}
           required={true}
         />
       </div>

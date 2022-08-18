@@ -66,7 +66,7 @@ export default function Home() {
             <P
               background={"light"}
               text={
-                "Here at Anyrep Appliance Repairs, we offer our reliable services on the same day where possible! So if you need your appliance repaired and reside in the Norwich, Norfolk area look no further. We have over 25 years of experience in the trade and all of our services are carried out by factory-trained professionals."
+                "Here at Anyrep Appliance Repairs, we offer our reliable services on the same day where possible! So if you need your appliance repaired and reside in the Norwich, Norfolk area look no further. We have over 25 years of experience in the trade and all of our services are carried out by trained professionals."
               }
             />
           </Fragment>
@@ -273,7 +273,7 @@ export default function Home() {
             id: 4,
             title: "How does your pricing work?",
             body: [
-              "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of anys parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
+              "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of any parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
             ],
           },
         ]}

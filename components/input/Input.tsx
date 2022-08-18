@@ -10,7 +10,7 @@ interface InputProps {
   value: string;
   autoComplete?: string;
   updateValue: (v: string) => void;
-  type: "text" | "number" | "email" | "password";
+  type: "text" | "number" | "email" | "password" | "tel";
   required: boolean;
 }
 

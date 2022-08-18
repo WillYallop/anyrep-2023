@@ -21,7 +21,7 @@ const FooterBlock = () => {
               <Logo />
             </div>
             <div class={tw`mt-10`}>
-              <P text={"Address:"} className={tw`mb-1 font-bold`} />
+              <P text={"Address:"} className={tw`mb-1 !font-bold`} />
               <address
                 class={tw`border-b border-brandDarkBlue border-opacity-10 pb-3 mb-3`}
               >
@@ -30,13 +30,49 @@ const FooterBlock = () => {
                   className={tw`not-italic`}
                 />
               </address>
-              <P text={"Business Hours:"} className={tw`mb-1 font-bold`} />
-              <ul>
+              <P text={"Business Hours:"} className={tw`mb-1 !font-bold`} />
+              <ul
+                class={tw`border-b border-brandDarkBlue border-opacity-10 pb-3 mb-3`}
+              >
                 <li>
                   <P text={"Mon - Fri: 8:00 am - 5:00 pm"} />
                 </li>
                 <li>
                   <P text={"Saturday: 8:00 am - 12:00 pm"} />
+                </li>
+              </ul>
+
+              <P text={"Contact us at:"} className={tw`mb-1 !font-bold`} />
+              <ul>
+                <li>
+                  <P
+                    text={
+                      <Fragment>
+                        Tel:{" "}
+                        <a
+                          href={"tel:07525150999"}
+                          class={tw`font-medium hover:text-brandRed`}
+                        >
+                          07525 150999
+                        </a>
+                      </Fragment>
+                    }
+                  />
+                </li>
+                <li>
+                  <P
+                    text={
+                      <Fragment>
+                        Email:{" "}
+                        <a
+                          href={"mailto:anyrep@gmail.com"}
+                          class={tw`font-medium hover:text-brandRed`}
+                        >
+                          anyrep@gmail.com
+                        </a>
+                      </Fragment>
+                    }
+                  />
                 </li>
               </ul>
             </div>
@@ -91,7 +127,7 @@ const FooterBlock = () => {
                 </li>
               </ul>
               <ul>
-                <li class={tw`font-bold mb-2`}>Repairs Services</li>
+                <li class={tw`font-bold mb-2`}>Repair Services</li>
                 <li>
                   <a
                     href="/washing-machine-repairs"
@@ -177,8 +213,9 @@ const FooterBlock = () => {
           </div>
         </div>
       </div>
+
       <div
-        class={tw`${roundedSectionInner} bg-sectionGreyDark py-6 text-center`}
+        class={tw`${roundedSectionInner} bg-sectionGreyDark py-6 px-4 text-center`}
       >
         <P
           background={"light"}
@@ -194,6 +231,27 @@ const FooterBlock = () => {
             </Fragment>
           }
         />
+      </div>
+      <div class={tw`bg-white mt-6 text-center`}>
+        <div
+          class={tw`trustpilot-widget`}
+          data-locale="en-GB"
+          data-template-id="5419b6a8b0d04a076446a9ad"
+          data-businessunit-id="62eac065864cf2b2acdb9fec"
+          data-style-height="24px"
+          data-style-width="100%"
+          data-theme="light"
+          data-min-review-count="10"
+          data-without-reviews-preferred-string-id="1"
+        >
+          <a
+            href="https://uk.trustpilot.com/review/anyrep.co.uk"
+            target="_blank"
+            rel="noopener"
+          >
+            Trustpilot
+          </a>
+        </div>
       </div>
     </footer>
   );
