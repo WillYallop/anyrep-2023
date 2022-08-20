@@ -1,9 +1,9 @@
 import { Handlers } from "$fresh/server.ts";
 
 export const handler: Handlers = {
-  POST(req) {
+  async POST(req) {
     return Response.json({
-      test: true,
+      test: await true,
     });
   },
 };
