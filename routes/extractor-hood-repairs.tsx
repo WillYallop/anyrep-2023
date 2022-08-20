@@ -36,10 +36,10 @@ export default function ExtractorHoodRepairs() {
   };
 
   const Head = (
-    <Fragment>
-      {/* script schema for service */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Extractor Hood Repairs",
@@ -56,9 +56,9 @@ export default function ExtractorHoodRepairs() {
             "@type": "Place",
             name: "Norwich, Norfolk",
           },
-        })}
-      </script>
-    </Fragment>
+        }),
+      }}
+    />
   );
 
   return (

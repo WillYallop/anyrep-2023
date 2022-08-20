@@ -36,10 +36,10 @@ export default function HooverRepairs() {
   };
 
   const Head = (
-    <Fragment>
-      {/* script schema for service */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
           name: "Microwave Repairs",
@@ -56,9 +56,9 @@ export default function HooverRepairs() {
             "@type": "Place",
             name: "Norwich, Norfolk",
           },
-        })}
-      </script>
-    </Fragment>
+        }),
+      }}
+    />
   );
 
   return (
