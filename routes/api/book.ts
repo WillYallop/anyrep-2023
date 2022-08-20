@@ -18,7 +18,7 @@ export const handler: Handlers = {
       password: SMTP_PASS as string,
     };
     console.log("pre connection");
-    await client.connect(connectConfig);
+    await client.connectTLS(connectConfig);
     console.log("post connection");
 
     const subject = "Anyrep Booking Enquiry";
