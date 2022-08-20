@@ -17,7 +17,7 @@ export const handler: Handlers = {
       username: SMTP_EMAIL as string,
       password: SMTP_PASS as string,
     };
-    console.log("pre connection");
+    console.log(SMTP_EMAIL, SMTP_PASS);
     await client.connectTLS(connectConfig);
     console.log("post connection");
 
