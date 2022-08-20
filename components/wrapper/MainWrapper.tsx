@@ -21,11 +21,13 @@ interface MainWrapperProps {
       description: string;
     };
   };
+  head?: h.JSX.Element;
 }
 
 const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
   children,
   seo,
+  head,
 }) => {
   return (
     <html>
@@ -68,6 +70,8 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
           name="trustpilot-one-time-domain-verification-id"
           content="476ecccd-155d-43f0-9694-afc8949543fd"
         />
+        <meta name="author" content="William Yallop"></meta>
+        <meta name="theme-color" content="#001524"></meta>
         {/*  */}
         <script
           type="application/ld+json"
@@ -103,6 +107,7 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
             }),
           }}
         />
+        {head ? head : null}
         <script
           type="text/javascript"
           src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"

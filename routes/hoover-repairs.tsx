@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function HooverRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Hoover Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your hoover repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Hoover Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your hoover repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Hoover Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your hoover repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Hoover Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your hoover repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,9 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={<Fragment>We can repair any hoover brand!</Fragment>}
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty hoover, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +76,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "It can suck when your hoover doesn’t! Your house slowly builds up dust, it can create a horrible environment to live in. At Anyrep we specialise in hoover repairs, so if yours is faulty, we have the experience and parts to get it fixed for you."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +90,27 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Weak suction",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "Broken belt",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Broken motor",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Broken filter",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Unusual noise",
             body: "",
           },
           {
-            title: "Water intake issues",
-            body: "",
-          },
-          {
-            title: "Water leaks",
-            body: "",
-          },
-          {
-            title: "Torn door seal",
+            title: "Tripping electrics",
             body: "",
           },
         ]}

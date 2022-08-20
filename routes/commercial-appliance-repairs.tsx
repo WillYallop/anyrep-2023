@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function CommercialApplianceRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Commercial Appliance Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your commercial appliance repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Commercial Appliance Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your commercial appliance repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Commercial Appliance Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your commercial appliance repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Commercial Appliance Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your commercial appliance repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,13 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={
+          <Fragment>
+            Get your commercial appliance repaired today with Anyrep!
+          </Fragment>
+        }
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty commercial appliance, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +80,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "A sudden breakdown of a commercial appliance can bring a lot of inconveniences and lost profit to your business. That’s why you need experienced professionals who can work quickly and effectively. At Anyrep Appliance Repairs, we have the experience and capacity to handle any simple or complex repairs quickly and successfully."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +94,31 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Regrigerators",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "Ovens",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Fryers",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Cookers",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Freezers & icemakers",
             body: "",
           },
           {
-            title: "Water intake issues",
+            title: "Washers",
             body: "",
           },
           {
-            title: "Water leaks",
-            body: "",
-          },
-          {
-            title: "Torn door seal",
+            title: "Coolers",
             body: "",
           },
         ]}

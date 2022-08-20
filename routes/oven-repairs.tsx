@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function OvenRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Oven Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your oven repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Oven Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your oven repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Oven Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your oven repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Oven/Cooker Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your oven/cooker repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,9 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={<Fragment>We can repair any oven/cooker brand!</Fragment>}
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty oven, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +76,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "When your oven/cooker breaks down, the impact is drastic, so we ensure Anyrep will do all it can to get your oven/cooker up and running like new. Most repairs are completed on the first visit and on the same day where possible."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +90,35 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Not heating up",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "Broken door",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Broken seal",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Broken timer",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Smells of gas",
             body: "",
           },
           {
-            title: "Water intake issues",
+            title: "Tripping Electrics",
             body: "",
           },
           {
-            title: "Water leaks",
+            title: "Irregular temperature",
             body: "",
           },
           {
-            title: "Torn door seal",
+            title: "Broken thermostat",
             body: "",
           },
         ]}

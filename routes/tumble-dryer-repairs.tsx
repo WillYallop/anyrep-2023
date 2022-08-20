@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function TumbleDryerRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Tumble Dryer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your tumble dryer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Tumble Dryer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your tumble dryer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Tumble Dryer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your tumble dryer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Tumble Dryer Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your tumble dryer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,9 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={<Fragment>We can repair any tumble dryer brand!</Fragment>}
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty tumble dryer, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +76,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "Having problems with your tumble dryer? Anyrep Appliance Repairs use quality diagnostic equipment and methods to determine the fault and provide a prompt and professional tumble dryer repair service, ensuring a long terms solution."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +90,35 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Noisy operation",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "No drum action",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Clothes not drying",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Clothes are steaming",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Tripping electrics",
             body: "",
           },
           {
-            title: "Water intake issues",
+            title: "Timer not working",
             body: "",
           },
           {
-            title: "Water leaks",
+            title: "Snapped belt",
             body: "",
           },
           {
-            title: "Torn door seal",
+            title: "Leaking water",
             body: "",
           },
         ]}

@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function ExtractorHoodRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Extractor Hood Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your extractor hood repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Extractor Hood Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your extractor hood repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Extractor Hood Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your extractor hood repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Extractor Hood Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your extractor hood repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,9 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={<Fragment>We can repair any extractor hood brand!</Fragment>}
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty extractor hood, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +76,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "When your Extractor Hood breaks down, the impact is drastic. So we ensure Anyrep will do all it can to get your Extractor Hood up and running like new. Most repairs are completed on the first visit and on the same day where possible."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +90,31 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Lights not working",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "Not extracting",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Broken fan motor",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Damaged exterior",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Old filter",
             body: "",
           },
           {
-            title: "Water intake issues",
+            title: "Tripping electrics",
             body: "",
           },
           {
-            title: "Water leaks",
-            body: "",
-          },
-          {
-            title: "Torn door seal",
+            title: "Loud operation",
             body: "",
           },
         ]}

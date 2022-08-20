@@ -15,23 +15,23 @@ import Footer from "../components/blocks/Footer.tsx";
 // Typography
 import P from "../components/typography/P.tsx";
 
-export default function WashingMachineRepairs() {
+export default function FridgeFreezerRepairs() {
   // SEO
   const SEO = {
     meta: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Fridge & Freezer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your fridge freezer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     og: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Fridge & Freezer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your fridge freezer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
     twitter: {
-      title: "Washing Machine Repairs | Norwich, Norfolk | Book online",
+      title: "Fridge & Freezer Repairs | Norwich, Norfolk | Book online",
       description:
-        "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+        "Book your fridge freezer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
     },
   };
 
@@ -42,10 +42,10 @@ export default function WashingMachineRepairs() {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Washing Machine Repairs",
+          name: "Fridge & Freezer Repairs",
           image: asset("/images/anyrep_metaimage.png"),
           description:
-            "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+            "Book your fridge freezer repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
           provider: {
             "@type": "Organization",
             name: "Anyrep Appliance Repairs",
@@ -64,9 +64,11 @@ export default function WashingMachineRepairs() {
   return (
     <MainWrapper seo={SEO} head={Head}>
       <SimpleHeroBlock
-        title={<Fragment>Need your washing machine repaired?</Fragment>}
+        title={
+          <Fragment>Is your fridge or freezer in need of repairs?</Fragment>
+        }
         description={
-          "Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+          "If you have a faulty fridge or freezer, don't hesitate to call Anyrep today! Book online in under a minute!"
         }
         button={{ text: "Book a repair!", url: "/book" }}
       ></SimpleHeroBlock>
@@ -76,7 +78,7 @@ export default function WashingMachineRepairs() {
             <P
               background={"light"}
               text={
-                "Don’t let your broken washing machine leave you without clean clothes. When your washing machine won’t drain or spin, trust Anyrep Appliance Repairs to get your washing machine up and running at the earliest possible opportunity."
+                "Keep your food from spoiling! If your fridge or freezer is faulty, don’t hesitate to call us. We can do it all. We have over 25 years of experience in the trade and we repair same day where possible. Our engineers are regularly trained to service all models, including freestanding, integrated and built-in units from leading manufacturers."
               }
               className={tw`lg:!text-xl`}
             />
@@ -90,35 +92,43 @@ export default function WashingMachineRepairs() {
         }
         cards={[
           {
-            title: "Blocks pumps",
+            title: "Not making ice",
             body: "",
           },
           {
-            title: "Failing to spin",
+            title: "Ice on the back wall",
             body: "",
           },
           {
-            title: "Not draining",
+            title: "Leaking water dispenser",
             body: "",
           },
           {
-            title: "Stuck door",
+            title: "Condensation inside",
             body: "",
           },
           {
-            title: "Noisy drum",
+            title: "Not cold",
             body: "",
           },
           {
-            title: "Water intake issues",
+            title: "No light",
             body: "",
           },
           {
-            title: "Water leaks",
+            title: "Too cold",
             body: "",
           },
           {
-            title: "Torn door seal",
+            title: "Not freezing",
+            body: "",
+          },
+          {
+            title: "Broken thermostat",
+            body: "",
+          },
+          {
+            title: "No power",
             body: "",
           },
         ]}
