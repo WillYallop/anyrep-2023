@@ -11,7 +11,7 @@ export const handler: Handlers = {
       connection: {
         hostname: "smtp-relay.sendinblue.com",
         port: 587,
-        tls: false,
+        tls: true,
         auth: {
           username: SMTP_EMAIL as string,
           password: SMTP_PASS as string,
