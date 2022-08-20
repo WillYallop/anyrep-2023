@@ -4,10 +4,13 @@ export const handler: Handlers = {
   async POST(req) {
     const data = await req.json();
     try {
-      // make a fetch request to https://api.williamyallop.com/v1/anyrep/email/book and append the data to the body
+      // make a fetch request to https://api.williamyallop.com/v1/anyrep/email/book and append the data to the body with json header
       fetch("https://api.williamyallop.com/v1/anyrep/email/book", {
         method: "POST",
         body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       // const json = await res.json();
       return Response.json({
