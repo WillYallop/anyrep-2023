@@ -17,7 +17,9 @@ export const handler: Handlers = {
       username: SMTP_EMAIL as string,
       password: SMTP_PASS as string,
     };
+    console.log("pre connection");
     await client.connect(connectConfig);
+    console.log("post connection");
 
     const subject = "Anyrep Booking Enquiry";
     const content = `Name: ${data.name}. Phone: ${data.number}. Email: ${data.email}. Appliance: ${data.appliance}. Issue: ${data.message}`;
