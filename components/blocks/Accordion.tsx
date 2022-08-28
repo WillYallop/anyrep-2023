@@ -30,6 +30,29 @@ const AccordionBlock: FunctionalComponent<AccordionBlockProps> = ({
             })}
           </ul>
         </div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "FAQPage",
+              mainEntity: accordions.map((accordion, index) => {
+                let answer = '';
+                for(let i = 0; i < accordion.body.length; i++) {
+                  answer += accordion.body[i];
+                }
+                return {
+                  "@type": "Question",
+                  name: accordion.title,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: answer,
+                  },
+                };
+              }),
+            }),
+          }}
+        />
       </div>
     </section>
   );
