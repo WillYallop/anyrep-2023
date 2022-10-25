@@ -120,8 +120,8 @@ export default function ExtractorHoodRepairs() {
         ]}
       ></SimpleCardGridBlock>
       <MapBlock
-        title={"Where are we located?"}
-        body={"Anyrep is a family run business operating from Norwich."}
+        title={"Serving the Norwich, Norfolk area!"}
+        body={"If your extractor hood has left you stuck, dont hesitate to call us!"}
       ></MapBlock>
       <AccordionBlock
         accordions={[
