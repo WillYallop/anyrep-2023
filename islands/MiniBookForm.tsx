@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h, FunctionalComponent } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 // Util
@@ -10,6 +10,7 @@ import Input from "../components/input/Input.tsx";
 import Textarea from "../components/input/Textarea.tsx";
 
 const MiniBookForm: FunctionalComponent = () => {
+  const [token, setToken] = useState("");
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState(false);
   const [email, setEmail] = useState("");
@@ -26,6 +27,9 @@ const MiniBookForm: FunctionalComponent = () => {
   const [inProgress, setInProgress] = useState(false);
 
   const [disableForm, setDisableForm] = useState(true);
+  const [errorMsg, setErrorMsg] = useState(
+    "Something went wrong. Please phone us on 07525 150999, or email us at anyrep@gmail.com instead."
+  );
 
   const onChange = (event: Event) => {
     const formValidationRes = formValidation(event);
@@ -35,7 +39,6 @@ const MiniBookForm: FunctionalComponent = () => {
         break;
       case "email":
         setEmailError(formValidationRes.inputValid);
-        console.log(formValidationRes.inputValid);
         break;
       case "phoneNumber":
         setNumberError(formValidationRes.inputValid);
@@ -52,21 +55,30 @@ const MiniBookForm: FunctionalComponent = () => {
     setDisableForm(formValidationRes.formValid);
   };
 
+  const reloadToken = async () => {
+    // @ts-ignore
+    window.turnstile.reset("#turnstile-con");
+  };
+
   const handleSubmit = (e: Event) => {
     e.preventDefault();
     if (!disableForm) {
       setInProgress(true);
+      setMessageSentError(false);
       fetch("/api/book", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          email,
-          number,
-          appliance,
-          message,
+          token: token,
+          template: {
+            name,
+            email,
+            number,
+            appliance,
+            message,
+          },
         }),
       })
         .then((res) => res.json())
@@ -85,21 +97,39 @@ const MiniBookForm: FunctionalComponent = () => {
           } else {
             setMessageSentError(true);
             setInProgress(false);
-            setTimeout(() => {
-              setMessageSentError(false);
-            }, 5000);
+            setErrorMsg(data.message);
+            if (data.type === "RECAPTCHA") {
+              reloadToken();
+            }
           }
         })
         .catch((err) => {
-          console.log(err);
           setMessageSentError(true);
           setInProgress(false);
+          setErrorMsg(
+            "Something went wrong. Please phone us on 07525 150999, or email us at anyrep@gmail.com instead."
+          );
           setTimeout(() => {
             setMessageSentError(false);
           }, 5000);
         });
     }
   };
+
+  useEffect(() => {
+    if (IS_BROWSER) {
+      // @ts-ignore
+      window.onloadTurnstileCallback = function () {
+        // @ts-ignore
+        turnstile.render("#turnstile-con", {
+          sitekey: "0x4AAAAAAABCnl9OFVLefF17",
+          callback: function (token: string) {
+            setToken(token);
+          },
+        });
+      };
+    }
+  }, []);
 
   return (
     <form
@@ -165,6 +195,7 @@ const MiniBookForm: FunctionalComponent = () => {
         updateValue={setMessage}
         required={false}
       />
+      <div id="turnstile-con"></div>
       <div class={tw`md:flex md:items-center md:justify-between mt-5`}>
         <input
           disabled={disableForm}
@@ -175,7 +206,7 @@ const MiniBookForm: FunctionalComponent = () => {
 
         <div class={tw`md:mt-0 mt-5`}>
           {messageSent ? <p class={tw``}>Enquiry sent!</p> : null}
-          {messageSentError ? <p class={tw``}>Something went wrong!</p> : null}
+          {messageSentError ? <p class={tw``}>{errorMsg}</p> : null}
         </div>
       </div>
     </form>

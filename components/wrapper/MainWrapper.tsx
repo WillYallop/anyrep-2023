@@ -129,6 +129,11 @@ const MainWrapper: FunctionalComponent<MainWrapperProps> = ({
           src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
           async
         ></script>
+        <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+          async
+          defer
+        ></script>
       </Head>
       <body>
         <TopBar />

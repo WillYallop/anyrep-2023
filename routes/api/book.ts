@@ -5,22 +5,24 @@ export const handler: Handlers = {
     const data = await req.json();
     try {
       // make a fetch request to https://api.williamyallop.com/v1/anyrep/email/book and append the data to the body with json header
-      fetch("https://api.williamyallop.com/v1/anyrep/email/book", {
+      const send = await fetch("https://api.williamyallop.com/v1/email", {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          user: "anyrep",
+          template: "book",
+          to: data.template.email,
+          subject: "Anyrep Booking Enquiry",
+          token: data.token,
+          data: data.template,
+        }),
         headers: {
           "Content-Type": "application/json",
         },
       });
-      // const json = await res.json();
-      return Response.json({
-        success: true,
-      });
+      const json = await send.json();
+      return Response.json(json);
     } catch (err) {
-      console.log(err);
-      return Response.json({
-        success: false,
-      });
+      return Response.json(err);
     }
   },
 };
