@@ -124,6 +124,7 @@ const MiniBookForm: FunctionalComponent = () => {
         turnstile.render("#turnstile-con", {
           sitekey: "0x4AAAAAAABCnl9OFVLefF17",
           callback: function (token: string) {
+            console.log("set token");
             setToken(token);
           },
         });
