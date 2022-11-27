@@ -124,11 +124,17 @@ const MiniBookForm: FunctionalComponent = () => {
         turnstile.render("#turnstile-con", {
           sitekey: "0x4AAAAAAABCnl9OFVLefF17",
           callback: function (token: string) {
-            console.log("set token");
             setToken(token);
           },
         });
       };
+
+      // add script to header
+      const script = document.createElement("script");
+      script.src =
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback";
+      script.async = true;
+      document.body.appendChild(script);
     }
   }, []);
 
