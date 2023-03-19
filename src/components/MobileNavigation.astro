@@ -1,0 +1,95 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import Link from "./partials/Link.astro";
+import NavigationDropdown from "./partials/NavigationDropdown.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  links: Array<{
+    title: string;
+    href?: string;
+    children: Array<{
+      title: string;
+      href: string;
+    }>;
+  }>;
+}
+const { links } = Astro.props;
+---
+
+<div class="lg:hidden">
+  <button
+    aria-label="Mobile Navigation Button"
+    class="hamburger-menu flex flex-col justify-between items-end h-5 w-8 z-10 relative cursor-pointer group"
+    data-toggler="mobile-nav"
+  >
+    <span
+      class="hamburger-menu__one w-full h-[2px] block bg-black group-hover:bg-brandRed absolute top-0 right-0 transition-all duration-transition ease-in-out"
+    ></span>
+    <span
+      class="hamburger-menu__two w-3/4 h-[2px] block bg-black group-hover:bg-brandRed absolute top-1/2 right-0 -translate-y-1/2 opacity-100 transition-all duration-transition ease-in-out"
+    ></span>
+    <span
+      class="hamburger-menu__three w-1/2 h-[2px] block bg-black group-hover:bg-brandRed absolute bottom-0 right-0 transition-all duration-transition ease-in-out"
+    ></span>
+    <span class="sr-only">Toggle Navigation</span>
+  </button>
+  <nav
+    data-toggler-receiver="mobile-nav"
+    class="mobile-nav-content translate-x-full flex items-center overflow-y-auto fixed top-[112px] w-full bottom-0 right-0 transition-all duration-200 bg-brandDarkBlue"
+  >
+    <div class="h-full w-full m-auto">
+      <ul role="menubar" class="px-5 py-10 flex flex-col">
+        {
+          links.map((item) => {
+            // Has children
+            if (item.children.length) {
+              return (
+                <li
+                  role="none"
+                  class="px-3 font-medium text-base flex justify-center flex-col relative py-2"
+                >
+                  <functionalities-details open>
+                    <details open>
+                      <summary
+                        role="menuitem"
+                        class="block text-white hover:text-brandRed transition-colors duration-300 text-xl font-medium"
+                      >
+                        {item.title}
+                      </summary>
+                      <NavigationDropdown links={item.children} />
+                    </details>
+                  </functionalities-details>
+                </li>
+              );
+            }
+            // Doesnt
+            else {
+              return (
+                <li role="none" class="px-3 flex items-center py-2 w-full">
+                  <a
+                    role="menuitem"
+                    href={item.href}
+                    rel="prefetch"
+                    class="text-white hover:text-brandRed transition-colors duration-300 text-xl font-medium block w-full"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              );
+            }
+          })
+        }
+        <li role="none" class="pl-3 mt-5">
+          <Link href={"/book"} theme={"white"}>Book a repair!</Link>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<button aria-label={"Mobile Navigation Button"} class=""> </button>

@@ -1,0 +1,55 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import { Picture } from "@astrojs/image/components";
+import H3 from "../typography/H3.astro";
+import P from "../typography/P.astro";
+import Link from "./Link.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  title: string;
+  body: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  link: {
+    text: string;
+    href: string;
+  };
+}
+
+const { title, body, image, link } = Astro.props;
+---
+
+<li class="flex flex-col items-start">
+  <div class="block w-full pt-[56.25%] relative">
+    <div
+      class="absolute top-0 left-0 right-0 bottom-0 rounded-t-xl overflow-hidden border-b-8 border-brandDarkBlue"
+    >
+      <Picture
+        src={image.src}
+        formats={["avif", "webp", "jpeg"]}
+        aspectRatio={"16:9"}
+        alt={image.alt}
+        widths={[400]}
+        loading={"lazy"}
+        sizes={"(min-width: 1024px) 400px, 100vw"}
+        class="object-cover w-full h-full"
+      />
+    </div>
+  </div>
+  <H3 classes="mt-5">
+    {title}
+  </H3>
+  <P classes={"mt-2"}>
+    {body}
+  </P>
+  <Link href={link.href} theme={"secondary"} classes="mt-5">
+    {link.text}
+  </Link>
+</li>

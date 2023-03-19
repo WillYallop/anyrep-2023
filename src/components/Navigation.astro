@@ -1,0 +1,72 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import Link from "./partials/Link.astro";
+import NavigationDropdown from "./partials/NavigationDropdown.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  links: Array<{
+    title: string;
+    href?: string;
+    children: Array<{
+      title: string;
+      href: string;
+    }>;
+  }>;
+}
+const { links } = Astro.props;
+---
+
+<nav class="transition-all duration-300 w-full justify-end hidden lg:flex">
+  <div class="h-full flex items-center justify-start lg:justify-end">
+    <ul role="menubar" class="flex justify-end items-center w-full">
+      {
+        links.map((item) => {
+          // Has children
+          if (item.children.length) {
+            return (
+              <li
+                role="none"
+                class="px-3 font-medium text-base flex justify-center flex-col relative"
+              >
+                <functionalities-details close-on-leave="true">
+                  <details>
+                    <summary
+                      role="menuitem"
+                      class="block hover:text-brandRed transition-colors duration-300 text-base font-medium"
+                    >
+                      {item.title}
+                    </summary>
+                    <NavigationDropdown links={item.children} />
+                  </details>
+                </functionalities-details>
+              </li>
+            );
+          }
+          // Doesnt
+          else {
+            return (
+              <li role="none" class="px-3 flex items-center">
+                <a
+                  role="menuitem"
+                  href={item.href}
+                  rel="prefetch"
+                  class="hover:text-brandRed transition-colors duration-300 text-base font-medium"
+                >
+                  {item.title}
+                </a>
+              </li>
+            );
+          }
+        })
+      }
+      <li class="pl-3 mt-0">
+        <Link href={"/book"} theme={"secondary"}>Book a repair!</Link>
+      </li>
+    </ul>
+  </div>
+</nav>

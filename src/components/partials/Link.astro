@@ -1,0 +1,28 @@
+---
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  href: string;
+  theme: "primary" | "secondary" | "white";
+  classes?: string;
+}
+
+const { href, theme, classes } = Astro.props;
+---
+
+<a
+  rel="prefetch"
+  href={href}
+  class={`
+   ${theme === "primary" ? "" : ""} 
+   ${
+     theme === "secondary"
+       ? "bg-white border border-brandDarkBlue hover:bg-brandDarkBlue hover:text-white"
+       : ""
+   }
+    ${theme === "white" ? "bg-white hover:bg-whiteHover text-titleDark" : ""}
+  ${classes} text-center duration-300 text-base font-medium transition-colors flex items-center rounded-xl px-7 h-11`}
+>
+  <slot />
+</a>

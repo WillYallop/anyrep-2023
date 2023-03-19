@@ -1,0 +1,25 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import H3 from "../typography/H3.astro";
+import P from "../typography/P.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  title: string;
+  body?: string;
+}
+const { title, body } = Astro.props;
+---
+
+<li
+  class="flex flex-col items-start border-t-[6px] border-brandDarkBlue max-w-xs"
+>
+  <H3 classes="mt-5">
+    {title}
+  </H3>
+  {body ? <P classes="mt-2">{body}</P> : null}
+</li>

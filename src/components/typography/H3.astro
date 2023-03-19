@@ -1,0 +1,19 @@
+---
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  background?: "dark" | "light";
+  classes?: string;
+}
+
+const { background = "light", classes = "" } = Astro.props;
+---
+
+<h3
+  class={`${
+    background === "dark" ? "text-titleLight" : "text-titleDark"
+  } md:text-lg text-base leading-tight font-bold ${classes}`}
+>
+  <slot />
+</h3>

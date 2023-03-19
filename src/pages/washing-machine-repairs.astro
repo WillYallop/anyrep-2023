@@ -1,0 +1,115 @@
+---
+/////////////////////////////////
+// ASSETS
+////////////////////////////////
+import ANYREP_METAIMAGE from "../assets/images/anyrep_metaimage.png?url";
+import LOGO from "../assets/images/logo.png?url";
+
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import MainLayout from "../layouts/Main.astro";
+import CardGrid from "../components/blocks/CardGrid.astro";
+import Map from "../components/blocks/Map.astro";
+import Accordions from "../components/blocks/Accordions.astro";
+import CTA from "../components/blocks/CTA.astro";
+import SimpleHero from "../components/blocks/SimpleHero.astro";
+import ServiceIntro from "../components/blocks/ServiceIntro.astro";
+import P from "../components/typography/P.astro";
+import DashCard from "../components/partials/DashCard.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+const SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Washing Machine Repairs",
+  image: ANYREP_METAIMAGE,
+  description:
+    "Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+  provider: {
+    "@type": "Organization",
+    name: "Anyrep Appliance Repairs",
+    url: "https://anyrep.co.uk",
+    logo: LOGO,
+  },
+  areaServed: {
+    "@type": "Place",
+    name: "Norwich, Norfolk",
+  },
+});
+---
+
+<MainLayout
+  title="Washing Machine Repairs | Norwich, Norfolk | Book online"
+  description="Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+  ogTitle="Washing Machine Repairs | Norwich, Norfolk | Book online"
+  ogDescription="Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+  twitterTitle="Washing Machine Repairs | Norwich, Norfolk | Book online"
+  twitterDescription="Book your washing machine repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+>
+  <SimpleHero
+    title="Washing Machine Repairs"
+    body="Book your appliance repair online with Anyrep. It takes less than a minute and couldn't be any easier!"
+    link={{
+      text: "Book a repair!",
+      url: "/book",
+    }}
+  />
+  <ServiceIntro>
+    <P classes={"lg:!text-xl"}>
+      Don’t let your broken washing machine leave you without clean clothes.
+      When your washing machine won’t drain or spin, trust Anyrep Appliance
+      Repairs to get your washing machine up and running at the earliest
+      possible opportunity.
+    </P>
+  </ServiceIntro>
+  <CardGrid
+    title="Common Faults"
+    body="These are some common faults that we fix at Anyrep often. If none of these apply to you, don't worry."
+  >
+    <DashCard title="Blocks pumps" />
+    <DashCard title="Failing to spin" />
+    <DashCard title="Not draining" />
+    <DashCard title="Stuck door" />
+    <DashCard title="Noisy drum" />
+    <DashCard title="Water intake issues" />
+    <DashCard title="Water leaks" />
+    <DashCard title="Torn door seal" />
+  </CardGrid>
+  <Map
+    title="Serving the Norwich, Norfolk area!"
+    body="If your washing machine has left you stuck, dont hesitate to call us!"
+  />
+  <Accordions
+    accordions={[
+      {
+        title: "What area do you cover?",
+        body: [
+          "At Anyrep, we offer our appliance repair services to the greater Norwich, Norfolk area. So, if you reside there and need your appliance repaired, don't hesitate to contact us right away.",
+        ],
+      },
+      {
+        title: "How long will my repair take?",
+        body: [
+          "We aim to complete repairs on the same day where possible, and they typically last between 1 and 2 hours. But in the case, you require a part we don't keep in stock, we will rearrange another visit ASAP.",
+        ],
+      },
+      {
+        title: "Will my machine need new parts?",
+        body: [
+          "Depending on the issue with your appliance you may not need parts. However, in the case you do, we keep common parts in stock so we can ensure a speedy and professional repair service.",
+        ],
+      },
+      {
+        title: "How does your pricing work?",
+        body: [
+          "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of any parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
+        ],
+      },
+    ]}
+  />
+  <CTA />
+  <script type="application/ld+json" slot="head" set:html={SCHEMA}></script>
+</MainLayout>

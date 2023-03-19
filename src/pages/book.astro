@@ -1,0 +1,67 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import MainLayout from "../layouts/Main.astro";
+import SimpleHero from "../components/blocks/SimpleHero.astro";
+import Map from "../components/blocks/Map.astro";
+import Accordions from "../components/blocks/Accordions.astro";
+import CTA from "../components/blocks/CTA.astro";
+import BookingForm from "../components/partials/BookingForm.astro";
+---
+
+<MainLayout
+  title="Book your appliance repair | Anyrep"
+  description="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+  ogTitle="Book your appliance repair | Anyrep"
+  ogDescription="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+  twitterTitle="Book your appliance repair | Anyrep"
+  twitterDescription="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+>
+  <SimpleHero
+    title="Book a repair!"
+    body="Has your appliance broken down and left you stuck? We can help you get it back to working order. Send us a message and we'll get back to you as soon as possible."
+  />
+  <section class="rounded-section-outer">
+    <div class="rounded-section-inner py-20">
+      <div
+        class="wrapper-medium flex items-start justify-center flex-wrap md:flex-nowrap"
+      >
+        <BookingForm />
+      </div>
+    </div>
+  </section>
+  <Map
+    title="Serving the Norwich, Norfolk area!"
+    body="If your machine has left you stuck, dont hesitate to call us!"
+  />
+  <Accordions
+    accordions={[
+      {
+        title: "What area do you cover?",
+        body: [
+          "At Anyrep, we offer our appliance repair services to the greater Norwich, Norfolk area. So, if you reside there and need your appliance repaired, don't hesitate to contact us right away.",
+        ],
+      },
+      {
+        title: "How long will my repair take?",
+        body: [
+          "We aim to complete repairs on the same day where possible, and they typically last between 1 and 2 hours. But in the case, you require a part we don't keep in stock, we will rearrange another visit ASAP.",
+        ],
+      },
+      {
+        title: "Will my machine need new parts?",
+        body: [
+          "Depending on the issue with your appliance you may not need parts. However, in the case you do, we keep common parts in stock so we can ensure a speedy and professional repair service.",
+        ],
+      },
+      {
+        title: "How does your pricing work?",
+        body: [
+          "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of any parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
+        ],
+      },
+    ]}
+  />
+  <CTA />
+</MainLayout>

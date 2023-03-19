@@ -1,0 +1,61 @@
+---
+import Input from "../input/Input.astro";
+import Textarea from "../input/Textarea.astro";
+---
+
+<form
+  id="booking-form"
+  action="https://api.williamyallop.com/v1/email"
+  method="post"
+  class="w-full"
+>
+  <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-5">
+    <Input
+      id={"nameInp"}
+      label="Name (*)"
+      name={"name"}
+      autoComplete={"name"}
+      type={"text"}
+      required={true}
+    />
+    <Input
+      id={"phoneInp"}
+      label="Phone number (*)"
+      name={"phoneNumber"}
+      autoComplete={"tel"}
+      type={"tel"}
+      required={true}
+    />
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-5">
+    <Input
+      id={"emailInp"}
+      label="Email (*)"
+      name={"email"}
+      autoComplete={"email"}
+      type={"email"}
+      required={true}
+    />
+    <Input
+      id={"applianceInp"}
+      label="Appliance"
+      name={"appliance"}
+      autoComplete={"off"}
+      type={"text"}
+      required={false}
+    />
+  </div>
+  <Textarea
+    id={"messageinp"}
+    label="What's the issue?"
+    name={"message"}
+    required={false}
+  />
+  <!-- submit -->
+  <div class="loading-con hidden mb-2">Form is sending...</div>
+  <input
+    type="submit"
+    value="Submit"
+    class="bg-brandRed hover:to-brandRedHover font-bold transition-colors duration-200 cursor-pointer text-white mr-5 text-center text-base font-medium border-brandRed flex items-center rounded-xl px-7 h-11 disabled:bg-opacity-60"
+  />
+</form>

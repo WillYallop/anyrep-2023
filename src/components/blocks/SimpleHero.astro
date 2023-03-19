@@ -1,0 +1,62 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import H1 from "../typography/H1.astro";
+import Subtitle from "../typography/Subtitle.astro";
+import Link from "../partials/Link.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  title: string;
+  body: string;
+  link?: {
+    text: string;
+    url: string;
+  };
+}
+
+const { title, body, link } = Astro.props;
+---
+
+<section class="rounded-section-outer">
+  <div
+    class="rounded-section-inner bg-brandDarkBlue relative min-h-[450px] flex items-center"
+  >
+    <div
+      class="wrapper-large flex flex-wrap lg:flex-nowrap items-center py-14 lg:py-20 h-full"
+    >
+      {/* textarea */}
+      <div
+        class="flex flex-col items-start w-full lg:w-1/2 lg:pr-10 px-2 md:px-0 z-10 relative"
+      >
+        <H1 background={"dark"} classes={"max-w-[600px]"}>
+          {title}
+        </H1>
+        <Subtitle background={"dark"} classes="max-w-lg mt-7">
+          {body}
+        </Subtitle>
+        {
+          link ? (
+            <Link href={link.url} theme={"white"} classes={"mt-10 lg:!flex"}>
+              {link.text}
+            </Link>
+          ) : null
+        }
+      </div>
+      {/* bg  */}
+      <div
+        class="absolute top-0 left-0 right-0 bottom-0 rounded-2xl overflow-hidden"
+      >
+        <span
+          class="hero-clip absolute block right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto lg:w-[55%] z-0"
+        ></span>
+        <span
+          class="hero-clip absolute block lg:hidden right-0 bottom-0 lg:top-10 bg-brandRed w-[60px] top-auto h-[100px] lg:h-auto lg:w-[55%] z-0"
+        ></span>
+      </div>
+    </div>
+  </div>
+</section>

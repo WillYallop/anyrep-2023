@@ -1,0 +1,163 @@
+---
+/////////////////////////////////
+// ASSETS
+////////////////////////////////
+import WASHING_MACHINE_CARD from "../assets/images/washingMachines/card.jpg";
+import FRIDGE_FREEZER_CARD from "../assets/images/fridgeFreezers/card.jpg";
+import DISHWASHER_CARD from "../assets/images/dishwashers/card.jpg";
+import TUMBLEDYER_CARD from "../assets/images/tumbleDryers/card.jpg";
+import OVEN_CARD from "../assets/images/ovens/card.jpg";
+import COMMERCIAL_APPLIANCE_CARD from "../assets/images/commercialAppliances/card.jpg";
+
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import MainLayout from "../layouts/Main.astro";
+import Hero from "../components/blocks/Hero.astro";
+import Intro from "../components/blocks/Intro.astro";
+import CardGrid from "../components/blocks/CardGrid.astro";
+import ImageCard from "../components/partials/ImageCard.astro";
+import Map from "../components/blocks/Map.astro";
+import Accordions from "../components/blocks/Accordions.astro";
+import CTA from "../components/blocks/CTA.astro";
+import H2 from "../components/typography/H2.astro";
+import P from "../components/typography/P.astro";
+---
+
+<MainLayout
+  title="Expert Appliance Repairs in Norwich, Norfolk | Anyrep"
+  description="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+  ogTitle="Expert Appliance Repairs in Norwich, Norfolk | Anyrep"
+  ogDescription="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+  twitterTitle="Expert Appliance Repairs in Norwich, Norfolk | Anyrep"
+  twitterDescription="Anyrep offers expert appliance repairs for domestic and commercial appliances in Norwich, Norfolk with over 25 years of experience. Book online or call us today!"
+>
+  <Hero
+    title="Expert Appliance Repair Services"
+    description="Experience fast, reliable, and professional appliance repair services with Anyrep – your trusted partner for all domestic and commercial appliance needs."
+  />
+  <Intro>
+    <H2 slot="title">
+      <span class="text-brandRed">Why</span>
+      <br />
+      Choose Anyrep?
+    </H2>
+    <P slot="textarea">
+      At Anyrep Appliance Repairs, we strive to provide dependable, same-day
+      services whenever possible! If you're in need of appliance repair and
+      located in the Norwich, Norfolk area, look no further. With over 25 years
+      of industry experience, our skilled professionals are committed to
+      delivering top-notch repair solutions.
+    </P>
+  </Intro>
+  <CardGrid
+    title="Our Services"
+    body="Here are some of the appliances we service. Whether it needs repair, maintenance or replacing entirely. We have the solution for you!"
+  >
+    <ImageCard
+      title={"Washing Machines Repairs"}
+      body={"Blocked pump, failing to spin, not draining? Is the door stuck, leaking or perhaps a noisy drum? Don't worry."}
+      image={{
+        src: WASHING_MACHINE_CARD,
+        alt: "A man using a washing machine.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/washing-machine-repairs",
+      }}
+    />
+    <ImageCard
+      title={"Fridge & Freezer Repairs"}
+      body={"Has it stopped making ice? Is it leaking, is there condensation on the inside? Is it not cold, is the light out?"}
+      image={{
+        src: FRIDGE_FREEZER_CARD,
+        alt: "A woman getting food out of the fridge.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/fridge-and-freezer-repairs",
+      }}
+    />
+    <ImageCard
+      title={"Dishwasher Repairs"}
+      body={"Have you got a broken hinge, blocked pumps, or a broken panel? Is it leaking, making loud noises, or just not cleaning?"}
+      image={{
+        src: DISHWASHER_CARD,
+        alt: "An unstacked dishwasher.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/dishwasher-repairs",
+      }}
+    />
+    <ImageCard
+      title={"Tumble Dryer Repairs"}
+      body={"Noisy operation? No drum action? Snapped belt, leaking, broken timer? Or maybe your clothes are just not drying!"}
+      image={{
+        src: TUMBLEDYER_CARD,
+        alt: " woman stacking the tumble dryer.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/tumble-dryer-repairs",
+      }}
+    />
+    <ImageCard
+      title={"Oven Repairs"}
+      body={"Not heating, broken door? Smells of gas, broken thermostat, broken seal? Fan not spinning, or perhaps the grills broke?"}
+      image={{
+        src: OVEN_CARD,
+        alt: "A mother and a child baking using the oven.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/oven-repairs",
+      }}
+    />
+    <ImageCard
+      title={"Commercial Appliance Repairs"}
+      body={"Whether your commercial refrigerator, oven, fryer, cooker, freezer, icemaker, washer or cooler is broken. We can fix it!"}
+      image={{
+        src: COMMERCIAL_APPLIANCE_CARD,
+        alt: "A commercial fridge, fully stocked up.",
+      }}
+      link={{
+        text: "Find out more",
+        href: "/commercial-appliance-repairs",
+      }}
+    />
+  </CardGrid>
+  <Map
+    title="Serving the Norwich, Norfolk area!"
+    body="If your machine has left you stuck, dont hesitate to call us!"
+  />
+  <Accordions
+    accordions={[
+      {
+        title: "What area do you cover?",
+        body: [
+          "At Anyrep, we offer our appliance repair services to the greater Norwich, Norfolk area. So, if you reside there and need your appliance repaired, don't hesitate to contact us right away.",
+        ],
+      },
+      {
+        title: "How long will my repair take?",
+        body: [
+          "We aim to complete repairs on the same day where possible, and they typically last between 1 and 2 hours. But in the case, you require a part we don't keep in stock, we will rearrange another visit ASAP.",
+        ],
+      },
+      {
+        title: "Will my machine need new parts?",
+        body: [
+          "Depending on the issue with your appliance you may not need parts. However, in the case you do, we keep common parts in stock so we can ensure a speedy and professional repair service.",
+        ],
+      },
+      {
+        title: "How does your pricing work?",
+        body: [
+          "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of any parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
+        ],
+      },
+    ]}
+  />
+  <CTA />
+</MainLayout>

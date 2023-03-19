@@ -1,0 +1,194 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import P from "../components/typography/P.astro";
+import FooterLink from "./partials/FooterLink.astro";
+import Logo from "./partials/Logo.astro";
+---
+
+<footer class="rounded-section-outer">
+  <div class="rounded-section-inner bg-sectionGrey py-12 mb-2.5">
+    <div class="wrapper-large lg:flex justify-between">
+      <div class="lg:pr-12">
+        <div class="w-44">
+          <Logo />
+        </div>
+        <div class="mt-10">
+          <P classes="mb-1 !font-bold">Address:</P>
+          <address
+            class="border-b border-brandDarkBlue border-opacity-10 pb-3 mb-3"
+          >
+            <P classes="not-italic">
+              3 Montrose Court, Norwich, Norfolk, NR7 0RY
+            </P>
+          </address>
+          <P classes="mb-1 !font-bold">Business Hours:</P>
+          <ul class="border-b border-brandDarkBlue border-opacity-10 pb-3 mb-3">
+            <li>
+              <P>Mon - Fri: 8:00 am - 5:00 pm</P>
+            </li>
+            <li>
+              <P>Saturday: 8:00 am - 12:00 pm</P>
+            </li>
+          </ul>
+
+          <P classes="mb-1 !font-bold">Contact us at:</P>
+          <ul>
+            <li>
+              <P>
+                Tel:{" "}
+                <a
+                  rel="prefetch"
+                  href={"tel:07525150999"}
+                  class="font-medium hover:text-brandRed"
+                >
+                  07525 150999
+                </a>
+              </P>
+            </li>
+            <li>
+              <P>
+                Email:{" "}
+                <a
+                  href={"mailto:anyrep@gmail.com"}
+                  class="font-medium hover:text-brandRed"
+                >
+                  anyrep@gmail.com
+                </a>
+              </P>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="pt-10 mt-10 lg:mt-0 lg:pt-0 border-t border-brandDarkBlue border-opacity-20 lg:!border-t-0"
+      >
+        <nav class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <ul>
+            <li class="font-bold mb-2">Pages</li>
+            <li>
+              <FooterLink href="/" rel={"prefetch"}>Home</FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/book" rel={"prefetch"}>Book</FooterLink>
+            </li>
+            <li>
+              <FooterLink
+                href="/https://www.facebook.com/anyrep/"
+                rel="noopener noreferrer"
+                target={"_blank"}
+              >
+                Facebook
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink
+                href="https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578/"
+                rel="noopener noreferrer"
+                target={"_blank"}
+              >
+                Yell
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink
+                href="https://uk.trustpilot.com/review/anyrep.co.uk"
+                rel="noopener noreferrer"
+                target={"_blank"}
+              >
+                Trustpilot
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/sitemap-0.xml" rel={"prefetch"}>
+                Sitemap
+              </FooterLink>
+            </li>
+          </ul>
+          <ul>
+            <li class="font-bold mb-2">Repair Services</li>
+            <li>
+              <FooterLink href="/washing-machine-repairs" rel={"prefetch"}>
+                Washing Machines
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/fridge-and-freezer-repairs" rel={"prefetch"}>
+                Fridges & Freezers
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/dishwasher-repairs" rel={"prefetch"}>
+                Dishwashers
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/tumble-dryer-repairs" rel={"prefetch"}>
+                Tumble Dryers
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/oven-repairs" rel={"prefetch"}>
+                Ovens
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/hob-repairs" rel={"prefetch"}>Hobs</FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/commercial-appliance-repairs" rel={"prefetch"}>
+                Commercial Appliances
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/extractor-hood-repairs" rel={"prefetch"}>
+                Extractor Hoods
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/hoover-repairs" rel={"prefetch"}>
+                Hoovers
+              </FooterLink>
+            </li>
+            <li>
+              <FooterLink href="/microwave-repairs" rel={"prefetch"}>
+                Microwaves
+              </FooterLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="rounded-section-inner bg-sectionGreyDark py-6 px-4 text-center">
+    <P>
+      Website design and development by{" "}
+      <a class="text-brandRedHover" href="https://williamyallop.com/">
+        William Yallop
+      </a>
+    </P>
+  </div>
+  <div class="bg-white mt-6 text-center">
+    <div
+      class="trustpilot-widget"
+      data-locale="en-GB"
+      data-template-id="5419b6a8b0d04a076446a9ad"
+      data-businessunit-id="62eac065864cf2b2acdb9fec"
+      data-style-height="24px"
+      data-style-width="100%"
+      data-theme="light"
+      data-min-review-count="10"
+      data-without-reviews-preferred-string-id="1"
+    >
+      <a
+        href="https://uk.trustpilot.com/review/anyrep.co.uk"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Trustpilot
+      </a>
+    </div>
+  </div>
+</footer>

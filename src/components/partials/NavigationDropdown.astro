@@ -1,0 +1,39 @@
+---
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  links: Array<{
+    title: string;
+    href: string;
+  }>;
+}
+const { links } = Astro.props;
+---
+
+<div class="lg:absolute top-full left-0">
+  <ul
+    role="menu"
+    class="flex flex-col transition-all lg:opacity-100 lg:translate-y-4 mt-5 z-30 lg:mt-0 duration-300 lg:absolute lg:top-full bg-opacity-5 lg:bg-opacity-100 bg-white lg:border lg:border-brandDarkBlue lg:border-opacity-20 rounded-2xl p-4 w-full lg:w-[300px]"
+  >
+    {
+      links.map((link) => {
+        return (
+          <li
+            role="none"
+            class="text-base border-t text-brandDarkBlue border-brandDarkBlue border-opacity-10 py-2 first:border-t-0 last:border-b lg:last:border-b-0 first:pt-0 lg:last:pb-0"
+          >
+            <a
+              role="menuitem"
+              rel="prefetch"
+              href={link.href}
+              class="text-white lg:text-black hover:text-brandRed transition-colors duration-300 text-base lg:text-base font-medium block w-full"
+            >
+              {link.title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

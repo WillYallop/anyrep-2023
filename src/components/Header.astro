@@ -1,0 +1,88 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import Logo from "./partials/Logo.astro";
+import Navigation from "./Navigation.astro";
+import MobileNavigation from "./MobileNavigation.astro";
+import TopBar from "./TopBar.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+const navItems = [
+  {
+    title: "Home",
+    href: "/",
+    children: [],
+  },
+  {
+    title: "Our Services",
+    href: undefined,
+    children: [
+      {
+        title: "Washing Machine Repairs",
+        href: "/washing-machine-repairs",
+      },
+      {
+        title: "Fridge & Freezer Repairs",
+        href: "/fridge-and-freezer-repairs",
+      },
+      {
+        title: "Dishwasher Repairs",
+        href: "/dishwasher-repairs",
+      },
+      {
+        title: "Tumble Dryer Repairs",
+        href: "/tumble-dryer-repairs",
+      },
+      {
+        title: "Oven Repairs",
+        href: "/oven-repairs",
+      },
+      {
+        title: "Hob Repairs",
+        href: "/hob-repairs",
+      },
+      {
+        title: "Commercial Appliance Repairs",
+        href: "/commercial-appliance-repairs",
+      },
+      {
+        title: "Extractor Hood Repairs",
+        href: "/extractor-hood-repairs",
+      },
+      {
+        title: "Hoover Repairs",
+        href: "/hoover-repairs",
+      },
+      {
+        title: "Microwave Repairs",
+        href: "/microwave-repairs",
+      },
+    ],
+  },
+  //   {
+  //     title: "Articles",
+  //     href: "/articles",
+  //     children: [],
+  //   },
+];
+---
+
+<functionalities-sticky-header class="header-root" trigger-offset="200">
+  <header
+    role="banner"
+    class="fixed top-0 left-0 right-0 z-50 bg-white shadow-lg transition-all duration-200"
+  >
+    <TopBar />
+    <div class="wrapper-large h-20 flex items-center justify-between">
+      <Logo />
+      <!-- Mobile Links -->
+      <div class="flex items-center z-50">
+        <MobileNavigation links={navItems} />
+      </div>
+      <Navigation links={navItems} />
+    </div>
+  </header>
+</functionalities-sticky-header>

@@ -1,0 +1,242 @@
+---
+import "../styles/global.css";
+
+/////////////////////////////////
+// ASSETS
+////////////////////////////////
+import ANYREP_METAIMAGE from "../assets/images/anyrep_metaimage.png?url";
+import APPLE_TOUCH_ICON from "../assets/apple-touch-icon.png?url";
+import FAVICON_32X32 from "../assets/favicon-32x32.png?url";
+import FAVICON_16X16 from "../assets/favicon-16x16.png?url";
+
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+const SCHEMA = JSON.stringify({
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  name: "Anyrep Appliance Repairs",
+  url: "https://anyrep.co.uk",
+  image: ANYREP_METAIMAGE,
+  description:
+    "Here at Anyrep Appliance Repairs we offer our reliable services on the same day where possible! So if you need your appliance repaired and you reside in the Norwich, Norfolk area then look no further. We have over 25 years of experience in the trade and our services are carried out by factory trained professionals. ",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "3 Montrose Court, Norwich, Norfolk, NR7 0RY",
+    addressLocality: "Norwich",
+    addressRegion: "Norfolk",
+    postalCode: "NR7 0RY",
+    addressCountry: "GB",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "52.63937885926824",
+    longitude: "1.3615421040698772",
+  },
+  telephone: "+44 (0)7525 150999",
+  openingHours: "Mo, Tu, We, Th, Fr 08:00-17:00",
+  sameAs: [
+    "https://www.facebook.com/anyrep",
+    "https://www.yell.com/biz/anyrep-domestic-and-commercial-appliance-repairs-norwich-7112578",
+    "https://uk.trustpilot.com/review/anyrep.co.uk",
+  ],
+});
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle: string;
+  ogDescription: string;
+  twitterTitle: string;
+  twitterDescription: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  twitterTitle,
+  twitterDescription,
+} = Astro.props;
+---
+
+<script>
+  import {
+    Details,
+    Disclosure,
+    StickyHeader,
+  } from "@functionalities/webcomponents";
+  import Toggler from "@functionalities/toggler";
+  import FormHandler, { Turnstile, FlashMessage } from "../utils/forms";
+
+  customElements.define("functionalities-details", Details);
+  customElements.define("functionalities-disclosure", Disclosure);
+  customElements.define("functionalities-sticky-header", StickyHeader);
+  new Toggler();
+
+  new FormHandler("#booking-form", {
+    recaptcha: new Turnstile("0x4AAAAAAABCnl9OFVLefF17"),
+    flashMessage: new FlashMessage("#flash-message", 7200),
+    resetOnSuccess: true,
+    disableSubmit: true,
+    scrollToError: {
+      enabled: true,
+      offset: 0,
+    },
+    localisation: {
+      validationError: "Please check the form for errors.",
+      error:
+        "There was an error submitting the form, please try calling us instead.",
+      success: "Thank you for your enquiry, we will be in touch shortly.",
+    },
+    send: async (action: string, data: FormData) => {
+      try {
+        const send = await fetch(action, {
+          method: "POST",
+          body: JSON.stringify({
+            user: "anyrep",
+            template: "book",
+            to: data.get("email"),
+            subject: "Anyrep Booking Enquiry",
+            token: data.get("cf-turnstile-response"),
+            data: {
+              name: data.get("name"),
+              email: data.get("email"),
+              number: data.get("phoneNumber"),
+              appliance: data.get("appliance"),
+              message: data.get("message"),
+            },
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await send.json();
+        console.log(json);
+        return {
+          success: true,
+          message: json.message,
+          errors: json.errors,
+        };
+      } catch (error) {
+        console.log(error);
+        return {
+          success: false,
+          message:
+            "There was an error submitting the form, please try calling us instead.",
+        };
+      }
+    },
+  });
+</script>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="author" content="William Yallop" />
+    <link rel="apple-touch-icon" sizes="180x180" href={APPLE_TOUCH_ICON} />
+    <link rel="icon" type="image/png" sizes="32x32" href={FAVICON_32X32} />
+    <link rel="icon" type="image/png" sizes="16x16" href={FAVICON_16X16} />
+    <meta name="msapplication-TileColor" content="#001524" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta
+      name="trustpilot-one-time-domain-verification-id"
+      content="476ecccd-155d-43f0-9694-afc8949543fd"
+    />
+    <meta name="theme-color" content="#001524" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- OG Meta -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={ANYREP_METAIMAGE} />
+
+    <!-- Twitter Meta -->
+    <meta property="twitter:title" content={twitterTitle} />
+    <meta property="twitter:description" content={twitterDescription} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content={ANYREP_METAIMAGE} />
+    <meta name="twitter:domain" content={Astro.url} />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta name="twitter:image:alt" content="Anyrep Appliance Repairs" />
+    <meta name="twitter:image:width" content="1200" />
+    <meta name="twitter:image:height" content="627" />
+    <meta name="twitter:image:type" content="image/png" />
+    <meta name="twitter:image:src" content={ANYREP_METAIMAGE} />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href="/rss.xml"
+    />
+    <!-- Scripts -->
+    <script
+      type="text/javascript"
+      src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+      async
+      defer
+    ></script>
+    <script type="application/ld+json" set:html={SCHEMA}></script>
+    <slot name="head" />
+  </head>
+  <body class="pt-[112px]" data-toggler-receiver="mobile-nav">
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <div
+      id="flash-message"
+      class="flash-message hidden fixed bottom-5 left-5 max-w-[400px] w-full p-5 rounded-xl bg-brandDarkBlue"
+    >
+      <p data-flash-message-message class="pr-10 text-white"></p>
+      <button
+        data-flash-message-close
+        class="absolute top-1/2 right-5 -translate-y-1/2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+          class="w-4 h-4 fill-white"
+          ><path
+            d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3l105.4 105.3c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256l105.3-105.4z"
+          ></path></svg
+        >
+      </button>
+    </div>
+    <a
+      href="tel:07525150999"
+      class="fixed right-5 bottom-5 h-16 w-16 bg-brandRed rounded-full z-50 hover:bg-brandRedHover flex items-center justify-center transition-colors duration-200"
+      aria-label={`Call us on 07525 150999`}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        class="h-6 w-6 fill-white"
+      >
+        <path
+          d="m511.2 387-23.3 100.8a31 31 0 0 1-30.4 24.2A458 458 0 0 1 0 54.5a31 31 0 0 1 24.2-30.4L125 .8a31.4 31.4 0 0 1 35.8 18.1l46.5 108.5a31.3 31.3 0 0 1-9 36.5L144.5 207A349.7 349.7 0 0 0 304 366.6l44-53.8a31.1 31.1 0 0 1 36.5-9L493 350.3c13.1 6.9 21.6 22.1 18.2 36.7z"
+        ></path>
+      </svg>
+      <span class="sr-only"> Call us on 07525 150999</span>
+    </a>
+  </body>
+</html>

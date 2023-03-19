@@ -1,0 +1,74 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import P from "../typography/P.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  accordions: Array<{
+    title: string;
+    body: Array<string>;
+  }>;
+}
+
+const { accordions } = Astro.props;
+
+const SCHEMA = JSON.stringify({
+  "@context": "http://schema.org",
+  "@type": "FAQPage",
+  mainEntity: accordions.map((accordion, index) => {
+    let answer = "";
+    for (let i = 0; i < accordion.body.length; i++) {
+      answer += accordion.body[i];
+    }
+    return {
+      "@type": "Question",
+      name: accordion.title,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    };
+  }),
+});
+---
+
+<section class="rounded-section-outer">
+  <div class="rounded-section-inner py-20">
+    <div class="wrapper-medium">
+      {/* grid */}
+      <ul class="section-wrapper-small w-full">
+        {
+          accordions.map((accordion, index) => {
+            return (
+              <li class="flex w-full flex-col border-b border-brandDarkBlue relative py-2 last:border-b-0 border-opacity-20 first:pt-0">
+                <functionalities-disclosure
+                  group="group-1"
+                  duration="200"
+                  open={index === 0 ? true : false}
+                >
+                  <details open={index === 0 ? true : false}>
+                    <summary class="block w-full text-left text-lg font-medium transition-[margin] duration-300 pr-12 !focus:outline-none py-2">
+                      {accordion.title}
+                    </summary>
+                    <div>
+                      <div class="pb-2">
+                        {accordion.body.map((body, index) => {
+                          return <P classes={"mb-2 last:mb-0"}>{body}</P>;
+                        })}
+                      </div>
+                    </div>
+                  </details>
+                </functionalities-disclosure>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <script type="application/ld+json" set:html={SCHEMA}></script>
+  </div>
+</section>

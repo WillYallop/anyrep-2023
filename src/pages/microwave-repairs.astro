@@ -1,0 +1,113 @@
+---
+/////////////////////////////////
+// ASSETS
+////////////////////////////////
+import ANYREP_METAIMAGE from "../assets/images/anyrep_metaimage.png?url";
+import LOGO from "../assets/images/logo.png?url";
+
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import MainLayout from "../layouts/Main.astro";
+import CardGrid from "../components/blocks/CardGrid.astro";
+import Map from "../components/blocks/Map.astro";
+import Accordions from "../components/blocks/Accordions.astro";
+import CTA from "../components/blocks/CTA.astro";
+import SimpleHero from "../components/blocks/SimpleHero.astro";
+import ServiceIntro from "../components/blocks/ServiceIntro.astro";
+import P from "../components/typography/P.astro";
+import DashCard from "../components/partials/DashCard.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+const SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Microwave Repairs",
+  image: ANYREP_METAIMAGE,
+  description:
+    "Book your microwave repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!",
+  provider: {
+    "@type": "Organization",
+    name: "Anyrep Appliance Repairs",
+    url: "https://anyrep.co.uk",
+    logo: LOGO,
+  },
+  areaServed: {
+    "@type": "Place",
+    name: "Norwich, Norfolk",
+  },
+});
+---
+
+<MainLayout
+  title="Microwave Repairs | Norwich, Norfolk | Book online"
+  description="Book your microwave repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+  ogTitle="Microwave Repairs | Norwich, Norfolk | Book online"
+  ogDescription="Book your microwave repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+  twitterTitle="Microwave Repairs | Norwich, Norfolk | Book online"
+  twitterDescription="Book your microwave repair online for same or next-day repairs. We have over 20 years of experience serving the Norwich, Norfolk area. Book online today!"
+>
+  <SimpleHero
+    title="Microwave Repairs"
+    body="If you have a faulty microwave, don't hesitate to call Anyrep today! Book online in under a minute!"
+    link={{
+      text: "Book a repair!",
+      url: "/book",
+    }}
+  />
+  <ServiceIntro>
+    <P classes={"lg:!text-xl"}>
+      The microwave is the perfect appliance for when you need a quick low
+      effort meal to eat. That’s why at Anyrep we offer our microwave repair
+      service so start using it again as soon as possible. We stock parts for
+      common microwave issues, so we have you covered.
+    </P>
+  </ServiceIntro>
+  <CardGrid
+    title="Common Faults"
+    body="These are some common faults that we fix at Anyrep often. If none of these apply to you, don't worry."
+  >
+    <DashCard title="Not running" />
+    <DashCard title="Not heating" />
+    <DashCard title="Tray not spinning" />
+    <DashCard title="Exhaust fan broken" />
+    <DashCard title="Unusual noise" />
+    <DashCard title="Tripping electrics" />
+  </CardGrid>
+  <Map
+    title="Serving the Norwich, Norfolk area!"
+    body="If your microwave has left you stuck, dont hesitate to call us!"
+  />
+  <Accordions
+    accordions={[
+      {
+        title: "What area do you cover?",
+        body: [
+          "At Anyrep, we offer our appliance repair services to the greater Norwich, Norfolk area. So, if you reside there and need your appliance repaired, don't hesitate to contact us right away.",
+        ],
+      },
+      {
+        title: "How long will my repair take?",
+        body: [
+          "We aim to complete repairs on the same day where possible, and they typically last between 1 and 2 hours. But in the case, you require a part we don't keep in stock, we will rearrange another visit ASAP.",
+        ],
+      },
+      {
+        title: "Will my machine need new parts?",
+        body: [
+          "Depending on the issue with your appliance you may not need parts. However, in the case you do, we keep common parts in stock so we can ensure a speedy and professional repair service.",
+        ],
+      },
+      {
+        title: "How does your pricing work?",
+        body: [
+          "For domestic appliance repairs, we charge a fixed call-out fee, and the cost of any parts if required. That's it. So regardless of how long it takes to get the job done, you arent going to be hit with hidden fees. For commercial appliance repairs, we charge a minimal call-out fee, an hourly fee and then the price of parts if required.",
+        ],
+      },
+    ]}
+  />
+  <CTA />
+  <script type="application/ld+json" slot="head" set:html={SCHEMA}></script>
+</MainLayout>

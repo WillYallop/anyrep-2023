@@ -1,0 +1,26 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import H2 from "../typography/H2.astro";
+import P from "../typography/P.astro";
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  title: string;
+  body: string;
+}
+
+const { title, body } = Astro.props;
+---
+
+<div class="w-full max-w-sm">
+  <H2>
+    {title}
+  </H2>
+  <P classes="md:text-xl md:mt-5 mt-2">
+    {body}
+  </P>
+  <span class="md:w-20 md:h-3 w-14 h-2 block bg-brandRed md:mt-7 mt-5"></span>
+</div>

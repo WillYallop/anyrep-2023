@@ -1,0 +1,26 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import H2 from "../typography/H2.astro";
+import P from "../typography/P.astro";
+import Link from "../partials/Link.astro";
+---
+
+<section class="rounded-section-outer">
+  <div class="rounded-section-inner bg-brandDarkBlue py-20">
+    <div
+      class="wrapper-medium flex flex-col items-center text-center max-w-[550px] mx-auto"
+    >
+      <H2 background={"dark"} classes="mb-6">Book a repair</H2>
+
+      <P background={"dark"}>
+        Let Anyrep help get your appliance back up and running like new. Call
+        us, or send us a booking enquiry - it takes less than a minute!
+      </P>
+      <Link href={"/book"} theme={"white"} classes={"mt-8"}>
+        Book a repair!
+      </Link>
+    </div>
+  </div>
+</section>
