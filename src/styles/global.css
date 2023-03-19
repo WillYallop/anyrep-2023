@@ -38,6 +38,9 @@
     form[data-form-state="loading"] .loading-con {
         @apply flex;
     }
+    details summary::-webkit-details-marker {
+        display:none;
+    }
     /* Wrapper */
     .wrapper-large {
         @apply w-full max-w-[1360px] px-5 md:px-10 mx-auto;
