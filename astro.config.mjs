@@ -16,7 +16,11 @@ export default defineConfig({
     sitemap(),
     tailwind(),
     image(),
-    partytown(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
     prefetch(),
     preact(),
   ],
