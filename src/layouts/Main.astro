@@ -58,6 +58,7 @@ interface Props {
   ogDescription: string;
   twitterTitle: string;
   twitterDescription: string;
+  metaImage?: string;
   breadcrumbs?: Array<{
     href: string;
     text: string;
@@ -72,6 +73,7 @@ const {
   ogDescription,
   twitterTitle,
   twitterDescription,
+  metaImage,
   breadcrumbs,
 } = Astro.props;
 ---
@@ -154,8 +156,6 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href={FAVICON_32X32} />
     <link rel="icon" type="image/png" sizes="16x16" href={FAVICON_16X16} />
     <meta name="msapplication-TileColor" content="#001524" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
     <meta
       name="trustpilot-one-time-domain-verification-id"
       content="476ecccd-155d-43f0-9694-afc8949543fd"
@@ -170,20 +170,20 @@ const {
     <meta property="og:description" content={ogDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={ANYREP_METAIMAGE} />
+    <meta property="og:image" content={metaImage || ANYREP_METAIMAGE} />
 
     <!-- Twitter Meta -->
     <meta property="twitter:title" content={twitterTitle} />
     <meta property="twitter:description" content={twitterDescription} />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:image" content={ANYREP_METAIMAGE} />
+    <meta property="twitter:image" content={metaImage || ANYREP_METAIMAGE} />
     <meta name="twitter:domain" content={Astro.url} />
     <meta property="twitter:url" content={Astro.url} />
     <meta name="twitter:image:alt" content="Anyrep Appliance Repairs" />
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="627" />
     <meta name="twitter:image:type" content="image/png" />
-    <meta name="twitter:image:src" content={ANYREP_METAIMAGE} />
+    <meta name="twitter:image:src" content={metaImage || ANYREP_METAIMAGE} />
 
     <!-- RSS -->
     <link
