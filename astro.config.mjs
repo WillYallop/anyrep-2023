@@ -6,8 +6,6 @@ import image from "@astrojs/image";
 import partytown from "@astrojs/partytown";
 import prefetch from "@astrojs/prefetch";
 
-import preact from "@astrojs/preact";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://anyrep.co.uk",
@@ -22,6 +20,5 @@ export default defineConfig({
       },
     }),
     prefetch(),
-    preact(),
   ],
 });
