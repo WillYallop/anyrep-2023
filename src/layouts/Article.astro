@@ -94,13 +94,6 @@ const SCHEMA = JSON.stringify({
           <h1>{title}</h1>
           <FormattedDate date={pubDate} />
         </div>
-        {
-          updatedDate && (
-            <div class="last-updated-on">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )
-        }
         <slot />
       </div>
     </div>
