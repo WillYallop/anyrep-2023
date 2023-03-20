@@ -10,20 +10,23 @@ import Link from "../partials/Link.astro";
 // DATA
 ////////////////////////////////
 interface Props {
+  type?: "slim" | "standard";
   title: string;
-  body: string;
+  body?: string;
   link?: {
     text: string;
     url: string;
   };
 }
 
-const { title, body, link } = Astro.props;
+const { type = "standard", title, body, link } = Astro.props;
 ---
 
 <section class="rounded-section-outer pt-5">
   <div
-    class="rounded-section-inner bg-brandDarkBlue relative min-h-[450px] flex items-center"
+    class={`rounded-section-inner bg-brandDarkBlue relative flex items-center 
+        ${type === "slim" ? "min-h-[250px]" : ""}
+        ${type === "standard" ? "min-h-[450px]" : ""}`}
   >
     <div
       class="wrapper-large flex flex-wrap lg:flex-nowrap items-center py-14 lg:py-20 h-full"
@@ -35,9 +38,13 @@ const { title, body, link } = Astro.props;
         <H1 background={"dark"} classes={"max-w-[600px]"}>
           {title}
         </H1>
-        <Subtitle background={"dark"} classes="max-w-lg mt-7">
-          {body}
-        </Subtitle>
+        {
+          body ? (
+            <Subtitle background={"dark"} classes="max-w-lg mt-7">
+              {body}
+            </Subtitle>
+          ) : null
+        }
         {
           link ? (
             <Link href={link.url} theme={"white"} classes={"mt-10 lg:!flex"}>

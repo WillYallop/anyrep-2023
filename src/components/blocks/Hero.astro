@@ -54,7 +54,10 @@ const { title, description } = Astro.props;
       </div>
       {/* form */}
       <div class="w-full mt-14 -mb-5 lg:mt-0 lg:w-1/2 z-10 relative">
-        <div class="bg-white rounded-2xl border-8 border-brandDarkBlue p-5">
+        <div class="bg-white rounded-2xl border-8 border-black p-5 pt-8">
+          <span
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-6 bg-black rounded-b-lg"
+          ></span>
           <BookingForm />
         </div>
       </div>

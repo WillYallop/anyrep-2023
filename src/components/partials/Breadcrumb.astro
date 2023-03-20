@@ -1,0 +1,57 @@
+---
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  links: Array<{
+    href: string;
+    text: string;
+    current?: boolean;
+  }>;
+}
+const { links } = Astro.props;
+
+const SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: links.map((link, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: link.text,
+    item: link.href,
+  })),
+});
+---
+
+<nav aria-label="Breadcrumb" class="bg-slate-200 block py-2">
+  <ol class="flex flex-wrap wrapper-large">
+    {
+      links.map((link, index) => (
+        <li class="flex items-center text-sm first:hidden md:first:flex">
+          {link.current ? (
+            <a href={link.href} aria-current="page" class="hover:underline">
+              {link.text}
+            </a>
+          ) : (
+            <a href={link.href} class="hover:underline">
+              {link.text}
+            </a>
+          )}
+          {index !== links.length - 1 ? (
+            <span class="h-3 w-3 mx-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+                class="h-3 w-3"
+              >
+                <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9S63.9 115 63.9 128v256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+              </svg>
+            </span>
+          ) : null}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={SCHEMA}></script>

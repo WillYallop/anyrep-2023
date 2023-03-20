@@ -14,6 +14,7 @@ import FAVICON_16X16 from "../assets/favicon-16x16.png?url";
 ////////////////////////////////
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Breadcrumb from "../components/partials/Breadcrumb.astro";
 
 /////////////////////////////////
 // DATA
@@ -57,6 +58,11 @@ interface Props {
   ogDescription: string;
   twitterTitle: string;
   twitterDescription: string;
+  breadcrumbs?: Array<{
+    href: string;
+    text: string;
+    current?: boolean;
+  }>;
 }
 
 const {
@@ -66,6 +72,7 @@ const {
   ogDescription,
   twitterTitle,
   twitterDescription,
+  breadcrumbs,
 } = Astro.props;
 ---
 
@@ -212,6 +219,7 @@ const {
   </head>
   <body class="pt-[112px]" data-toggler-receiver="mobile-nav">
     <Header />
+    {breadcrumbs && <Breadcrumb links={breadcrumbs} />}
     <main><slot /></main>
     <Footer />
     <div

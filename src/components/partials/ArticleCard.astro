@@ -1,0 +1,60 @@
+---
+/////////////////////////////////
+// COMPONENTS
+////////////////////////////////
+import FormattedDate from "../../components/partials/FormattedDate.astro";
+import { Picture } from "@astrojs/image/components";
+import Link from "./Link.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+interface Props {
+  title: string;
+  slug: string;
+  description: string;
+  date: Date;
+  heroImage: string;
+}
+
+const { title, slug, date, description, heroImage } = Astro.props;
+---
+
+<li class="w-full h-full">
+  <article class="flex flex-col justify-between items-start group h-full">
+    <div>
+      <a
+        href={`/articles/${slug}`}
+        class="block overflow-hidden rounded-t-xl border-b-[8px] border-brandDarkBlue pb-[52%] relative"
+      >
+        <div class="absolute inset-0">
+          <Picture
+            src={heroImage}
+            formats={["avif", "webp", "jpeg"]}
+            aspectRatio={"16:9"}
+            alt={title}
+            widths={[400]}
+            loading={"lazy"}
+            sizes={"(min-width: 1024px) 400px, 100vw"}
+            class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200"
+          />
+        </div>
+      </a>
+      <h2 class="text-lg font-bold mt-2.5 mb-1 line-clamp-3 hover:underline">
+        <a href={`/articles/${slug}`}>{title}</a>
+      </h2>
+
+      <FormattedDate date={date} classes={"text-sm"} />
+      <p class="mt-2.5 line-clamp-3">
+        {description}
+      </p>
+    </div>
+    <Link
+      href={`/articles/${slug}`}
+      theme={"secondary"}
+      classes={"mt-5 w-full justify-center"}
+    >
+      Read more
+    </Link>
+  </article>
+</li>

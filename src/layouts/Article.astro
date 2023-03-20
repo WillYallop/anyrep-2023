@@ -1,0 +1,109 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { SITE_URL } from "../consts";
+
+/////////////////////////////////
+// ASSETS
+////////////////////////////////
+import ANYREP_METAIMAGE from "../assets/images/anyrep_metaimage.png?url";
+
+/////////////////////////////////
+// Components
+////////////////////////////////
+import { Picture } from "@astrojs/image/components";
+import FormattedDate from "../components/partials/FormattedDate.astro";
+import MainLayout from "./Main.astro";
+
+/////////////////////////////////
+// DATA
+////////////////////////////////
+type Props = CollectionEntry<"articles">["data"];
+
+const { pathname } = Astro.url;
+
+const {
+  title,
+  description,
+  metaTitle,
+  metaDescription,
+  pubDate,
+  updatedDate,
+  heroImage,
+} = Astro.props;
+
+const SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  publisher: {
+    "@type": "Organization",
+    name: "Anyrep Appliance Repairs",
+    logo: {
+      "@type": "ImageObject",
+      url: ANYREP_METAIMAGE,
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${SITE_URL}${pathname}`,
+  },
+  headline: title,
+  description: metaDescription,
+  image: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}${heroImage}`,
+  },
+  datePublished: pubDate,
+  dateModified: updatedDate,
+});
+---
+
+<MainLayout
+  title={metaTitle}
+  description={metaDescription}
+  ogTitle={metaTitle}
+  ogDescription={metaDescription}
+  twitterTitle={metaTitle}
+  twitterDescription={metaDescription}
+  breadcrumbs={[
+    { href: "/", text: "Home" },
+    { href: "/articles", text: "Articles" },
+    { href: pathname, text: title, current: true },
+  ]}
+>
+  <article class="rounded-section-outer">
+    <div class="rounded-section-inner py-10">
+      <div
+        class="wrapper-small prose lg:prose-lg prose-slate prose-h1:text-3xl prose-h1:lg:text-4xl"
+      >
+        <div class="border-b pb-5">
+          <div class="w-full pb-[52%] relative mb-10">
+            <div class="absolute inset-0">
+              <Picture
+                src={heroImage}
+                formats={["avif", "webp", "jpeg"]}
+                aspectRatio={"16:9"}
+                alt={title}
+                widths={[1200]}
+                loading={"lazy"}
+                sizes={"(min-width: 1024px) 400px, 100vw"}
+                class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200 !my-0"
+              />
+            </div>
+          </div>
+
+          <h1>{title}</h1>
+          <FormattedDate date={pubDate} />
+        </div>
+        {
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+        <slot />
+      </div>
+    </div>
+  </article>
+  <script slot="head" type="application/ld+json" set:html={SCHEMA}></script>
+</MainLayout>
