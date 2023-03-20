@@ -49,7 +49,7 @@
         @apply w-full max-w-[1160px] px-5 md:px-10 mx-auto;
     }
     .wrapper-small {
-        @apply w-full max-w-[1000px] px-5 md:px-10 mx-auto;
+        @apply w-full max-w-[900px] px-5 md:px-10 mx-auto;
     }
     .section-wrapper-small {
         @apply w-full max-w-[800px] mx-auto;
