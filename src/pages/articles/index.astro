@@ -12,7 +12,8 @@ import ArticleCard from "../../components/partials/ArticleCard.astro";
 // DATA
 ////////////////////////////////
 const posts = (await getCollection("articles")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 ---
 

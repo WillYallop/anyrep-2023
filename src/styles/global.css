@@ -23,9 +23,6 @@
     .error-container.error {
         @apply flex;
     }
-    #turnstile-con-0 {
-        @apply mt-4;
-    }
     .flash-message.is-active {
         @apply flex;
     }
