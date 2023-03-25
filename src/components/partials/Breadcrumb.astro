@@ -1,4 +1,6 @@
 ---
+import { SITE_URL } from "../../consts";
+
 /////////////////////////////////
 // DATA
 ////////////////////////////////
@@ -18,7 +20,7 @@ const SCHEMA = JSON.stringify({
     "@type": "ListItem",
     position: index + 1,
     name: link.text,
-    item: link.href,
+    item: `${SITE_URL}${link.href}`,
   })),
 });
 ---
