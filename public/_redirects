@@ -1,7 +1,17 @@
 /appliance-repair-wymondham    /
+/appliance-repair-wymondham/   /
 /appliance-repair-norwich      /
+/appliance-repair-norwich/     /
 /cooker-repairs                /oven-repairs/
+/cooker-repairs/               /oven-repairs/
 /appliance-repair-aylsham      /
+/appliance-repair-aylsham/     /
+/store/                        /
+/blog/using-mdx/               /articles/
+/blog/second-post/             /articles/
+/blog/first-post/              /articles/
+/blog/markdown-style-guide/    /articles/
+/blog/third-post/              /articles/
 
 /washing-machine-repairs       /washing-machine-repairs/
 /fridge-and-freezer-repairs    /fridge-and-freezer-repairs/
@@ -14,3 +24,7 @@
 /hoover-repairs                /hoover-repairs/
 /microwave-repairs             /microwave-repairs/
 /articles                      /articles/
+
+/articles/the-benefits-of-regular-appliance-maintenance-how-to-extend-the-life-of-your-domestic-and-commercial-appliances /articles/the-benefits-of-regular-appliance-maintenance-how-to-extend-the-life-of-your-domestic-and-commercial-appliances/
+/articles/are-modern-appliances-designed-to-fail /articles/are-modern-appliances-designed-to-fail/
+/articles/tips-for-reducing-your-appliance-energy-consumption-and-saving-money /articles/tips-for-reducing-your-appliance-energy-consumption-and-saving-money/
