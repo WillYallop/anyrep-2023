@@ -24,7 +24,7 @@ const { title, slug, date, description, heroImage } = Astro.props;
   <article class="flex flex-col justify-between items-start group h-full">
     <div>
       <a
-        href={`/articles/${slug}`}
+        href={`/articles/${slug}/`}
         class="block overflow-hidden rounded-t-xl border-b-[8px] border-brandDarkBlue pb-[52%] relative"
       >
         <div class="absolute inset-0">
@@ -41,7 +41,7 @@ const { title, slug, date, description, heroImage } = Astro.props;
         </div>
       </a>
       <h2 class="text-lg font-bold mt-2.5 mb-1 line-clamp-3 hover:underline">
-        <a href={`/articles/${slug}`}>{title}</a>
+        <a href={`/articles/${slug}/`}>{title}</a>
       </h2>
 
       <FormattedDate date={date} classes={"text-sm"} />
@@ -50,7 +50,7 @@ const { title, slug, date, description, heroImage } = Astro.props;
       </p>
     </div>
     <Link
-      href={`/articles/${slug}`}
+      href={`/articles/${slug}/`}
       theme={"secondary"}
       classes={"mt-5 w-full justify-center"}
     >

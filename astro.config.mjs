@@ -9,6 +9,7 @@ import prefetch from "@astrojs/prefetch";
 // https://astro.build/config
 export default defineConfig({
   site: "https://anyrep.co.uk",
+  trailingSlash: "always",
   integrations: [
     mdx(),
     sitemap(),
