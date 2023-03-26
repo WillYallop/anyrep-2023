@@ -1,19 +1,30 @@
+# Old site urls
 /appliance-repair-wymondham    /
 /appliance-repair-wymondham/   /
 /appliance-repair-norwich      /
 /appliance-repair-norwich/     /
+/appliance-repair-dereham      /
+/appliance-repair-great-yarmouth /
+/appliance-repair-norfolk      /
 /cooker-repairs                /oven-repairs/
 /cooker-repairs/               /oven-repairs/
 /cooker-repairs.php            /oven-repairs/
 /appliance-repair-aylsham      /
 /appliance-repair-aylsham/     /
 /store/                        /
+/sitemap.xml/                  /sitemap-0.xml
+/sitemap.xml                   /sitemap-0.xml
+/contact                       /book/
+
+# Blog Fixes
 /blog/using-mdx/               /articles/
 /blog/second-post/             /articles/
 /blog/first-post/              /articles/
 /blog/markdown-style-guide/    /articles/
 /blog/third-post/              /articles/
+/articles/markdown-style-guide/ /articles/
 
+# Current site url fixes
 /washing-machine-repairs       /washing-machine-repairs/
 /fridge-and-freezer-repairs    /fridge-and-freezer-repairs/
 /dishwasher-repairs            /dishwasher-repairs/
