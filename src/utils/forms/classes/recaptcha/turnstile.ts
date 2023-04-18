@@ -4,6 +4,7 @@ const ID = "turnstile-con";
 
 export default class Turnstile extends Recaptcha {
   instanceID: number = 0;
+  widgetID?: string = undefined;
   constructor(key: string) {
     super({
       src: "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback",
@@ -28,18 +29,19 @@ export default class Turnstile extends Recaptcha {
       const recaptchaEles = document.querySelectorAll("[turnstile-recaptcha]");
       recaptchaEles.forEach((ele) => {
         // @ts-ignore
-        turnstile.render(`#${ele.id}`, {
+        this.widgetID = turnstile.render(`#${ele.id}`, {
           sitekey: this.key,
           callback: (token: string) => {
             this.setToken(token);
           },
-        });
+        }) as string | undefined;
       });
     };
   }
+  onLoadTurnstileCallback() {}
   async refresh() {
     // @ts-ignore
-    turnstile.reset(`#${ID}-${this.instanceID}`);
+    turnstile.reset(this.widgetID);
     await this.waitUntilValid();
   }
 }
