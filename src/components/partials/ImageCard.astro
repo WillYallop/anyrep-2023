@@ -33,7 +33,7 @@ const { title, body, image, link } = Astro.props;
     >
       <Picture
         src={image.src}
-        formats={["avif", "webp", "jpeg"]}
+        formats={["avif", "webp", "jpg"]}
         alt={image.alt}
         widths={[400]}
         loading={"lazy"}
