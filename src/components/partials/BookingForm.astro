@@ -3,12 +3,7 @@ import Input from "../input/Input.astro";
 import Textarea from "../input/Textarea.astro";
 ---
 
-<form
-  id="booking-form"
-  action="https://api.williamyallop.com/v1/email"
-  method="post"
-  class="w-full"
->
+<form id="booking-form" action="/api/email/" method="post" class="w-full">
   <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-5">
     <Input
       id={"nameInp"}
@@ -56,6 +51,6 @@ import Textarea from "../input/Textarea.astro";
   <input
     type="submit"
     value="Submit"
-    class="bg-brandRed hover:to-brandRedHover font-bold transition-colors duration-200 cursor-pointer text-white mr-5 text-center text-base font-medium border-brandRed flex items-center rounded-xl px-7 h-11 disabled:bg-opacity-60"
+    class="bg-brandRed hover:to-brandRedHover transition-colors duration-200 cursor-pointer text-white mr-5 text-center text-base font-medium border-brandRed flex items-center rounded-xl px-7 h-11 disabled:bg-opacity-60"
   />
 </form>

@@ -3,7 +3,7 @@
 // COMPONENTS
 ////////////////////////////////
 import FormattedDate from "../../components/partials/FormattedDate.astro";
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import Link from "./Link.astro";
 
 /////////////////////////////////
@@ -31,7 +31,9 @@ const { title, slug, date, description, heroImage } = Astro.props;
           <Picture
             src={heroImage}
             formats={["avif", "webp", "jpeg"]}
-            aspectRatio={"16:9"}
+            width={400}
+            height={400}
+            decoding="async"
             alt={title}
             widths={[400]}
             loading={"lazy"}

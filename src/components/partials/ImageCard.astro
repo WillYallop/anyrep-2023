@@ -2,7 +2,7 @@
 /////////////////////////////////
 // COMPONENTS
 ////////////////////////////////
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import H3 from "../typography/H3.astro";
 import P from "../typography/P.astro";
 import Link from "./Link.astro";
@@ -34,10 +34,11 @@ const { title, body, image, link } = Astro.props;
       <Picture
         src={image.src}
         formats={["avif", "webp", "jpeg"]}
-        aspectRatio={"16:9"}
         alt={image.alt}
         widths={[400]}
         loading={"lazy"}
+        inferSize={true}
+        decoding="async"
         sizes={"(min-width: 1024px) 400px, 100vw"}
         class="object-cover w-full h-full"
       />

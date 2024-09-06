@@ -39,6 +39,8 @@ const SCHEMA = JSON.stringify({
     name: "Norwich, Norfolk",
   },
 });
+
+export const prerender = false;
 ---
 
 <MainLayout
@@ -118,5 +120,5 @@ const SCHEMA = JSON.stringify({
     ]}
   />
   <CTA />
-  <script type="application/ld+json" slot="head" set:html={SCHEMA}></script>
+  <script type="application/ld+json" slot="head" set:html={SCHEMA} />
 </MainLayout>

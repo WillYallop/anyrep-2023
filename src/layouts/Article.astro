@@ -10,7 +10,7 @@ import ANYREP_METAIMAGE from "../assets/images/anyrep_metaimage.png?url";
 /////////////////////////////////
 // Components
 ////////////////////////////////
-import { Picture } from "@astrojs/image/components";
+import { Picture } from "astro:assets";
 import FormattedDate from "../components/partials/FormattedDate.astro";
 import MainLayout from "./Main.astro";
 
@@ -77,17 +77,19 @@ const SCHEMA = JSON.stringify({
         class="wrapper-small px-0 prose lg:prose-lg prose-slate prose-h1:text-3xl prose-h1:lg:text-4xl"
       >
         <div class="border-b pb-5">
-          <div class="w-full pb-[52%] relative mb-10">
+          <div class="w-full pb-[52%] relative mb-10 overflow-hidden">
             <div class="absolute inset-0">
               <Picture
                 src={heroImage}
                 formats={["avif", "webp", "jpeg"]}
-                aspectRatio={"16:9"}
+                width={900}
+                height={500}
+                decoding="async"
                 alt={title}
                 widths={[1200]}
                 loading={"lazy"}
                 sizes={"(min-width: 1024px) 400px, 100vw"}
-                class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200 !my-0"
+                class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-200 !my-0 block"
               />
             </div>
           </div>
@@ -99,5 +101,5 @@ const SCHEMA = JSON.stringify({
       </div>
     </div>
   </article>
-  <script slot="head" type="application/ld+json" set:html={SCHEMA}></script>
+  <script slot="head" type="application/ld+json" set:html={SCHEMA} />
 </MainLayout>
