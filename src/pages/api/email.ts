@@ -240,7 +240,7 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(import.meta.env.SECRET_RESEND_API_KEY as string);
 
     const { data, error } = await resend.emails.send({
-      from: "Anyrep Appliance Repairs <noreply@anyrep.co.uk>",
+      from: "Anyrep Appliance Repairs <anyrep@gmail.com>",
       to: [bookingData.to, "anyrep@gmail.com"],
       subject: "Anyrep Booking Enquiry",
       replyTo: bookingData.data.email,
@@ -273,7 +273,7 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({
         code: 200,
         type: "EMAIL",
-        message: "Email sent successfully",
+        message: "Thank you for your enquiry, we will be in touch shortly. If you are not recieving an email, please check your spam folder.",
         data: data,
       }),
       {
