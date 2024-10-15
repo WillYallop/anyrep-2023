@@ -240,7 +240,7 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(import.meta.env.SECRET_RESEND_API_KEY as string);
 
     const { data, error } = await resend.emails.send({
-      from: "Anyrep Appliance Repairs <anyrep@gmail.com>",
+      from: "Anyrep Appliance Repairs <noreply@anyrep.co.uk>",
       to: [bookingData.to, "anyrep@gmail.com"],
       subject: "Anyrep Booking Enquiry",
       replyTo: bookingData.data.email,
