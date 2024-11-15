@@ -148,11 +148,11 @@ const emailTemplate = (data: {
               <div class="list-item"><span>Name</span> ${data.name}</div>
               <div class="list-item">
                 <span>Email</span>
-                <a href="mailto:${data.email}">${data.email}</a>
+                <p>${data.email}</p>
               </div>
               <div class="list-item">
                 <span>Phone</span>
-                <a href="tel:${data.phoneNumber}">${data.phoneNumber}</a>
+                <p>${data.phoneNumber}</p>
               </div>
               <div class="list-item">
                 <span>Appliance</span> ${data.appliance}
@@ -244,6 +244,7 @@ export const POST: APIRoute = async ({ request }) => {
             to: [bookingData.to, "ashley@anyrep.co.uk"],
             subject: "Anyrep Booking Enquiry",
             replyTo: bookingData.data.email,
+            text: `Name: ${bookingData.data.name}\nEmail: ${bookingData.data.email}\nPhone: ${bookingData.data.number}\nAppliance: ${bookingData.data.appliance}\nMessage: ${bookingData.data.message}`,
             html: emailTemplate({
                 name: bookingData.data.name,
                 email: bookingData.data.email,
