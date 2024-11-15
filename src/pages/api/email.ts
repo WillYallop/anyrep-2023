@@ -3,12 +3,12 @@ import type { APIRoute } from "astro";
 import { Resend } from "resend";
 
 const emailTemplate = (data: {
-  name: string;
-  email: string;
-  phoneNumber: string;
-  appliance: string;
-  message: string;
-  appUrl: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    appliance: string;
+    message: string;
+    appUrl: string;
 }) => `
 <!DOCTYPE html>
 <html lang="en">
@@ -175,129 +175,129 @@ const emailTemplate = (data: {
 type RecaptchaErrors = Array<string>;
 
 interface BookingData {
-  to: string;
-  token: string;
-  data: {
-    name: string;
-    email: string;
-    number: string;
-    appliance: string;
-    message: string;
-  };
+    to: string;
+    token: string;
+    data: {
+        name: string;
+        email: string;
+        number: string;
+        appliance: string;
+        message: string;
+    };
 }
 
 const verifySite = async (token: string, secret: string) => {
-  const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+    const url = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
-  const formData = new FormData();
-  formData.append("secret", secret);
-  formData.append("response", token);
+    const formData = new FormData();
+    formData.append("secret", secret);
+    formData.append("response", token);
 
-  const response = await fetch(url, {
-    body: formData,
-    method: "POST",
-  });
-  const data = await response.json();
-  if (data.success) {
-    return {
-      success: true,
-    };
-  } else {
-    return {
-      success: false,
-      errors: data["error-codes"] as RecaptchaErrors,
-    };
-  }
+    const response = await fetch(url, {
+        body: formData,
+        method: "POST",
+    });
+    const data = await response.json();
+    if (data.success) {
+        return {
+            success: true,
+        };
+    } else {
+        return {
+            success: false,
+            errors: data["error-codes"] as RecaptchaErrors,
+        };
+    }
 };
 
 export const POST: APIRoute = async ({ request }) => {
-  try {
-    const bookingData: BookingData = await request.json();
+    try {
+        const bookingData: BookingData = await request.json();
 
-    const appUrl = "https://anyrep.co.uk";
+        const appUrl = "https://anyrep.co.uk";
 
-    const siteVerified = await verifySite(
-      bookingData.token,
-      import.meta.env.SECRET_TURNSTILE_SECRET as string
-    );
-    if (!siteVerified.success) {
-      return new Response(
-        JSON.stringify({
-          code: 401,
-          type: "RECAPTCHA",
-          message: "Invalid turnstile token",
-          errors: siteVerified.errors,
-        }),
-        {
-          status: 401,
-          headers: {
-            "Content-Type": "application/json",
-          },
+        const siteVerified = await verifySite(
+            bookingData.token,
+            import.meta.env.SECRET_TURNSTILE_SECRET as string
+        );
+        if (!siteVerified.success) {
+            return new Response(
+                JSON.stringify({
+                    code: 401,
+                    type: "RECAPTCHA",
+                    message: "Invalid turnstile token",
+                    errors: siteVerified.errors,
+                }),
+                {
+                    status: 401,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
         }
-      );
-    }
 
-    const resend = new Resend(import.meta.env.SECRET_RESEND_API_KEY as string);
+        const resend = new Resend(import.meta.env.SECRET_RESEND_API_KEY as string);
 
-    const { data, error } = await resend.emails.send({
-      from: "Anyrep Appliance Repairs <noreply@anyrep.co.uk>",
-      to: [bookingData.to, "anyrep@gmail.com"],
-      subject: "Anyrep Booking Enquiry",
-      replyTo: bookingData.data.email,
-      html: emailTemplate({
-        name: bookingData.data.name,
-        email: bookingData.data.email,
-        phoneNumber: bookingData.data.number,
-        appliance: bookingData.data.appliance,
-        message: bookingData.data.message,
-        appUrl: appUrl,
-      }),
-    });
-    if (error) {
-      return new Response(
-        JSON.stringify({
-          code: 500,
-          type: "EMAIL",
-          message: "Failed to send email, please try again later",
-        }),
-        {
-          status: 500,
-          headers: {
-            "Content-Type": "application/json",
-          },
+        const { data, error } = await resend.emails.send({
+            from: "Anyrep Appliance Repairs <ashley@anyrep.co.uk>",
+            to: [bookingData.to, "ashley@anyrep.co.uk"],
+            subject: "Anyrep Booking Enquiry",
+            replyTo: bookingData.data.email,
+            html: emailTemplate({
+                name: bookingData.data.name,
+                email: bookingData.data.email,
+                phoneNumber: bookingData.data.number,
+                appliance: bookingData.data.appliance,
+                message: bookingData.data.message,
+                appUrl: appUrl,
+            }),
+        });
+        if (error) {
+            return new Response(
+                JSON.stringify({
+                    code: 500,
+                    type: "EMAIL",
+                    message: "Failed to send email, please try again later",
+                }),
+                {
+                    status: 500,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
         }
-      );
-    }
 
-    return new Response(
-      JSON.stringify({
-        code: 200,
-        type: "EMAIL",
-        message: "Thank you for your enquiry, we will be in touch shortly. If you are not recieving an email, please check your spam folder.",
-        data: data,
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-  } catch (error) {
-    console.error("Unexpected error:", error);
-    return new Response(
-      JSON.stringify({
-        code: 500,
-        type: "UNEXPECTED",
-        message: "An unexpected error occurred. Please try again later.",
-      }),
-      {
-        status: 500,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-  }
+        return new Response(
+            JSON.stringify({
+                code: 200,
+                type: "EMAIL",
+                message: "Thank you for your enquiry, we will be in touch shortly. If you are not recieving an email, please check your spam folder.",
+                data: data,
+            }),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+    } catch (error) {
+        console.error("Unexpected error:", error);
+        return new Response(
+            JSON.stringify({
+                code: 500,
+                type: "UNEXPECTED",
+                message: "An unexpected error occurred. Please try again later.",
+            }),
+            {
+                status: 500,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+    }
 };
 export const prerender = false;
