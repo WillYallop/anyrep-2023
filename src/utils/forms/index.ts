@@ -418,20 +418,16 @@ export default class FormHandler {
   }
   // ----------------------------------------
   // submit
-  async #submit() {
+// submit
+async #submit() {
     if (!this.config.action) {
       console.error("No action set for form");
       return;
     }
-
-    // if recaptcha is enabled, refresh the token and add it to the form data
-    if (this.config.recaptcha) {
-      await this.config.recaptcha.refresh();
-    }
-
+  
     // set the form data
     const formData = new FormData(this.form);
-
+  
     // remove file inputs if the value is empty and they are not required
     const fileInputs = this.form.querySelectorAll(
       "input[type='file']"
@@ -439,29 +435,41 @@ export default class FormHandler {
     [...fileInputs].forEach((input) => {
       if (!input.required && !input.value) formData.delete(input.name);
     });
-
+  
     // user implemented send function
     if (this.config.send !== undefined) {
-      const res = await this.config.send(this.config.action, formData);
-      if (res.success) {
-        if (this.config.flashMessage) {
-          this.config.flashMessage.flash(
-            res.message || this.config.localisation?.success || "",
-            true
-          );
+      try {
+        const res = await this.config.send(this.config.action, formData);
+        
+        // If turnstile token was invalid, refresh and retry once
+        if (!res.success && res.errors?.['cf-turnstile-response']) {
+          if (this.config.recaptcha) {
+            try {
+              await this.config.recaptcha.refresh();
+              // Get fresh form data with new token
+              const retryFormData = new FormData(this.form);
+              // Remove empty file inputs again
+              [...fileInputs].forEach((input) => {
+                if (!input.required && !input.value) retryFormData.delete(input.name);
+              });
+              const retryRes = await this.config.send(this.config.action, retryFormData);
+              this.#handleSubmitResponse(retryRes);
+              return;
+            } catch (err) {
+              console.error('Turnstile refresh failed:', err);
+              // Fall through to handle original response
+            }
+          }
         }
-        if (this.config.onSuccess) this.config.onSuccess(this.form, res);
-        if (this.config.resetOnSuccess) this.form.reset();
-        this.#setState("success");
-      } else {
-        if (res.errors !== undefined) this.#formatErrorRes(res.errors);
+        
+        this.#handleSubmitResponse(res);
+      } catch (err) {
         if (this.config.flashMessage) {
           this.config.flashMessage.flash(
-            res.message || this.config.localisation?.validationError || "",
+            this.config.localisation?.error || "",
             false
           );
         }
-        if (this.config.onError) this.config.onError(this.form, res);
         this.#setState("error");
       }
     }
@@ -474,30 +482,33 @@ export default class FormHandler {
           body: formData,
         });
         const jsonRes = await res.json();
-
-        if (jsonRes.errors !== undefined) {
-          this.#formatErrorRes(jsonRes.errors);
-          if (this.config.flashMessage) {
-            this.config.flashMessage.flash(
-              jsonRes.message ||
-                this.config.localisation?.validationError ||
-                "",
-              false
-            );
+  
+        // If turnstile token was invalid, refresh and retry once
+        if (jsonRes.errors?.['cf-turnstile-response']) {
+          if (this.config.recaptcha) {
+            try {
+              await this.config.recaptcha.refresh();
+              // Get fresh form data with new token
+              const retryFormData = new FormData(this.form);
+              // Remove empty file inputs again
+              [...fileInputs].forEach((input) => {
+                if (!input.required && !input.value) retryFormData.delete(input.name);
+              });
+              const retryRes = await fetch(this.config.action, {
+                method: "POST",
+                body: retryFormData,
+              });
+              const retryJsonRes = await retryRes.json();
+              this.#handleDefaultResponse(retryJsonRes);
+              return;
+            } catch (err) {
+              console.error('Turnstile refresh failed:', err);
+              // Fall through to handle original response
+            }
           }
-          if (this.config.onError) this.config.onError(this.form, jsonRes);
-          this.#setState("error");
-        } else {
-          if (this.config.flashMessage) {
-            this.config.flashMessage.flash(
-              jsonRes.message || this.config.localisation?.success || "",
-              true
-            );
-          }
-          if (this.config.onSuccess) this.config.onSuccess(this.form, jsonRes);
-          if (this.config.resetOnSuccess) this.form.reset();
-          this.#setState("success");
         }
+  
+        this.#handleDefaultResponse(jsonRes);
       } catch (err) {
         if (this.config.flashMessage) {
           this.config.flashMessage.flash(
@@ -505,7 +516,60 @@ export default class FormHandler {
             false
           );
         }
+        this.#setState("error");
       }
+    }
+  }
+  
+  // Helper method for handling custom send responses
+  #handleSubmitResponse(res: SendResponse) {
+    if (res.success) {
+      if (this.config.flashMessage) {
+        this.config.flashMessage.flash(
+          res.message || this.config.localisation?.success || "",
+          true
+        );
+      }
+      if (this.config.onSuccess) this.config.onSuccess(this.form, res);
+      if (this.config.resetOnSuccess) this.form.reset();
+      this.#setState("success");
+    } else {
+      if (res.errors !== undefined) this.#formatErrorRes(res.errors);
+      if (this.config.flashMessage) {
+        this.config.flashMessage.flash(
+          res.message || this.config.localisation?.validationError || "",
+          false
+        );
+      }
+      if (this.config.onError) this.config.onError(this.form, res);
+      this.#setState("error");
+    }
+  }
+  
+  // Helper method for handling default fetch responses
+  #handleDefaultResponse(jsonRes: any) {
+    if (jsonRes.errors !== undefined) {
+      this.#formatErrorRes(jsonRes.errors);
+      if (this.config.flashMessage) {
+        this.config.flashMessage.flash(
+          jsonRes.message ||
+            this.config.localisation?.validationError ||
+            "",
+          false
+        );
+      }
+      if (this.config.onError) this.config.onError(this.form, jsonRes);
+      this.#setState("error");
+    } else {
+      if (this.config.flashMessage) {
+        this.config.flashMessage.flash(
+          jsonRes.message || this.config.localisation?.success || "",
+          true
+        );
+      }
+      if (this.config.onSuccess) this.config.onSuccess(this.form, jsonRes);
+      if (this.config.resetOnSuccess) this.form.reset();
+      this.#setState("success");
     }
   }
 }
